@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NO_PHISHING - Terminal Educacional</title>
+
+<link rel="icon" type="image/png" href="IMAGE1.png">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:radial-gradient(circle, #031b03 0%, #000 75%);
+    color:#00ff00;
+    font-family:"Courier New", monospace;
+    overflow-x:hidden;
+    padding:25px;
+    background:radial-gradient(circle, #031b03 0%, #000 75%);
+    text-shadow:0 0 4px #00ff00,0 0 8px rgba(0,255,0,.5);
+}
+
+a{
+    position:relative;
+    overflow:hidden;
+
+    display:flex;
+    gap:15px;
+    width:100%;
+
+    color:#00ff00;
+    text-decoration:none;
+
+    border:1px dashed #00ff00;
+
+    padding:15px;
+
+    transition:.3s;
+}
+a::before{
+    content:"";
+    position:absolute;
+
+    top:-100%;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:linear-gradient(
+        to bottom,
+        transparent,
+        rgba(0,255,0,.35),
+        transparent
+    );
+
+    transition:none;
+}
+    
+a:hover::before{
+
+    animation:linkScan .45s linear;
+
+}
+@keyframes linkScan{
+
+    from{
+        transform:translateY(-100%);
+    }
+
+    to{
+        transform:translateY(220%);
+    }
+
+}
+
+a:hover{
+
+    background:#00ff00;
+    color:#000;
+
+    box-shadow:
+        0 0 10px #00ff00,
+        0 0 20px #00ff00,
+        inset 0 0 10px #00ff00;
+
+}
+
+    
+.sumario{
+    border-style: dashed;
+    border-color: #00ff00;
+    border-width: 5px;
+    padding: 15px;
+}
+
+.terminal{
+    max-width:1200px;
+    margin:auto;
+    white-space:pre-wrap;
+    animation:flicker .15s infinite;
+    filter:drop-shadow(0 0 8px #00ff00);
+}
+
+.verde{
+    color:#00ff00;
+}
+
+.branco{
+    color:#FFF;
+}
+
+.azul{
+    color:#00BFFF;
+}
+
+.amarelo{
+    color:#ffff66;
+}
+
+hr{
+    border:1px dashed #00aa00;
+    margin:25px 0;
+}
+
+.bloco{
+    margin-top:25px;
+    margin-bottom:35px;
+}
+
+.titulo{
+    color:#00ffff;
+    margin-bottom:12px;
+    font-size:22px;
+}
+
+.subtitulo{
+    color:#ffff00;
+    margin-top:15px;
+    margin-bottom:8px;
+}
+
+.cursor{
+    display:inline-block;
+    width:12px;
+    height:22px;
+    background:#00ff00;
+    animation:blink .8s infinite;
+}
+
+@keyframes blink{
+0%,50%{
+opacity:1;
+}
+50.1%,100%{
+opacity:0;
+}
+}
+
+.crt{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+
+    background:
+    linear-gradient(rgba(18,16,16,0) 50%, rgba(0,0,0,.25) 50%),
+    linear-gradient(90deg,
+        rgba(255,0,0,.05),
+        rgba(0,255,0,.03),
+        rgba(0,0,255,.05));
+
+    background-size:100% 4px,6px 100%;
+
+    pointer-events:none;
+
+    overflow:hidden;
+}
+    
+
+/* Faixa de atualização da tela */
+.crt::before{
+    content:"";
+    position:absolute;
+
+    top:-25%;
+    left:0;
+
+    width:100%;
+    height:25%;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,.08),
+        rgba(0,255,0,.18),
+        rgba(255,255,255,.08),
+        rgba(255,255,255,0)
+    );
+
+    animation:scan 5s linear infinite;
+}
+
+/* Linha brilhante */
+.crt::after{
+    content:"";
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:3px;
+
+    background:rgba(255,255,255,.35);
+
+    box-shadow:
+        0 0 10px #00ff00,
+        0 0 20px #00ff00;
+
+    animation:refresh 3s linear infinite;
+}
+
+#boot{
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:right;
+
+    background:black;
+}
+
+.logo{
+
+    width:150px;
+    margin-bottom:25px;
+
+    filter: drop-shadow(0 0 10px #00ff00);
+}
+
+#titulo{
+    color:#00ff00;
+    font-size:48px;
+    margin-bottom:25px;
+    letter-spacing:5px;
+}
+
+#loading{
+
+    color:#00ff00;
+    font-size:22px;
+
+}
+    
+script{
+    white-space:nowrap;
+}
+@keyframes scan{
+
+    from{
+        transform:translateY(-120%);
+    }
+
+    to{
+        transform:translateY(600%);
+    }
+
+}
+
+@keyframes refresh{
+
+    from{
+        transform:translateY(-10px);
+    }
+
+    to{
+        transform:translateY(100vh);
+    }
+
+}
+
+@keyframes flicker{
+
+    0%{
+        opacity:1;
+        transform:translate(0);
+    }
+
+    20%{
+        opacity:.99;
+        transform:translateX(.4px);
+    }
+
+    40%{
+        opacity:.98;
+        transform:translateX(-.5px);
+    }
+
+    60%{
+        opacity:1;
+        transform:translateY(.3px);
+    }
+
+    80%{
+        opacity:.985;
+        transform:translateX(.2px);
+    }
+
+    100%{
+        opacity:1;
+        transform:translate(0);
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+<div id="boot">
+
+    <img src="IMAGE4.png" class="logo">
+
+    <h1 id="titulo"></h1>
+
+    <div id="loading"></div>
+
+</div>
+
+<div id="terminal" style="display:none;">
+<div class="crt"></div>
+
+<div class="terminal">
+
+<span class="branco">NO_PHISHING [Versão 20.07.2026]</span>
+<span class="branco">© Copyright 2026 - Projeto de TCC</span>
+
+C:\Usuario> <span class="verde">iniciar_tcc.exe</span>
+
+Inicializando sistema...
+Carregando módulos...
+Carregando banco de dados...
+Carregando módulos de segurança...
+Verificando integridade...
+OK.
+Sistema carregado com sucesso.
+
+    <hr><hr>
+    <h2>TERMINAL DE CONSCIENTIZAÇÃO <br>SOBRE PHISHING</h2>
+    <hr><hr>
+
+C:\Usuario <span class="verde">menu</span><br>
+<div class="sumario">
+<a href="#01">[01] Introdução</a>
+
+<a href="#02">[02] O que é Phishing</a>
+
+<a href="#03">[03] Técnicas utilizadas</a>
+
+<a href="#04">[04] Roubo de Dados</a>
+
+<a href="#05">[05] Como identificar golpes</a>
+
+<a href="#06">[06] Como se proteger</a>
+
+<a href="#07">[07] Boas práticas</a>
+
+<a href="#08">[08] Referências</a>
+
+</div>
+
+<hr>
+
+<div class="bloco">
+
+<div class="titulo" id="01">
+>> 01 - INTRODUÇÃO
+</div>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+</div>
+
+<hr>
+
+<div class="bloco">
+
+<div class="titulo" id="02">
+>> 02 - O QUE É PHISHING
+</div>
+
+<div class="subtitulo">
+[Definição]
+</div>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+<div class="subtitulo">
+[Objetivo dos criminosos]
+</div>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+<div class="subtitulo">
+[Exemplos]
+</div>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+</div>
+
+<hr>
+
+<div class="bloco">
+
+<div class="titulo" id="03">
+>> 03 - TÉCNICAS UTILIZADAS
+</div>
+
+- E-mails falsos
+
+Lorem ipsum dolor sit amet.
+
+- SMS (Smishing)
+
+Lorem ipsum dolor sit amet.
+
+- Ligações (Vishing)
+
+Lorem ipsum dolor sit amet.
+
+- Redes Sociais
+
+Lorem ipsum dolor sit amet.
+
+- Sites Falsos
+
+Lorem ipsum dolor sit amet.
+
+</div>
+
+<hr>
+
+<div class="bloco">
+
+<div class="titulo" id="04">
+>> 04 - ROUBO DE DADOS
+</div>
+
+<div class="subtitulo">
+[Quais dados são roubados?]
+</div>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+<div class="subtitulo">
+[Consequências]
+</div>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+<div class="subtitulo">
+[Casos comuns]
+</div>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+</div>
+
+<hr>
+
+<div class="bloco">
+
+<div class="titulo" id="05">
+>> 05 - COMO IDENTIFICAR UM GOLPE
+</div>
+
+✔ Links suspeitos
+
+Lorem ipsum dolor sit amet.
+
+✔ Erros de português
+
+Lorem ipsum dolor sit amet.
+
+✔ Urgência excessiva
+
+Lorem ipsum dolor sit amet.
+
+✔ Solicitação de senha
+
+Lorem ipsum dolor sit amet.
+
+✔ Promoções irreais
+
+Lorem ipsum dolor sit amet.
+
+</div>
+
+<hr>
+
+<div class="bloco">
+
+<div class="titulo" id="06">
+>> 06 - COMO SE PROTEGER
+</div>
+
+Lorem ipsum dolor sit amet.
+
+Lorem ipsum dolor sit amet.
+
+Lorem ipsum dolor sit amet.
+
+Lorem ipsum dolor sit amet.
+
+Lorem ipsum dolor sit amet.
+
+</div>
+
+<hr>
+
+<div class="bloco">
+
+<div class="titulo" id="07">
+>> 07 - BOAS PRÁTICAS
+</div>
+
+• Autenticação em dois fatores
+
+Lorem ipsum dolor sit amet.
+
+• Atualização do sistema
+
+Lorem ipsum dolor sit amet.
+
+• Antivírus
+
+Lorem ipsum dolor sit amet.
+
+• Backup
+
+Lorem ipsum dolor sit amet.
+
+</div>
+
+<hr>
+
+<div class="bloco">
+
+<div class="titulo" id="08">
+>> 08 - REFERÊNCIAS
+</div>
+
+Lorem ipsum dolor sit amet.
+
+Lorem ipsum dolor sit amet.
+
+Lorem ipsum dolor sit amet.
+
+Lorem ipsum dolor sit amet.
+
+</div>
+
+<hr>
+
+C:\Usuario> <span class="verde">_</span><span class="cursor"></span>
+
+</div>
+</div>  
+<script>
+
+const titulo = "NO_PHISHING";
+
+let i = 0;
+
+function escreverTitulo(){
+
+    if(i < titulo.length){
+
+        document.getElementById("titulo").innerHTML += titulo.charAt(i);
+
+        i++;
+
+        setTimeout(escreverTitulo,150);
+
+    }else{
+
+        iniciarBoot();
+
+    }
+
+}
+
+const mensagens=[
+
+"Inicializando sistema...",
+"Carregando módulos...",
+"Carregando banco de dados...",
+"Carregando módulos de segurança...",
+"Verificando integridade...",
+"OK.",
+"Sistema carregado com sucesso."
+
+];
+
+let indice=0;
+
+function iniciarBoot(){
+
+    mostrarMensagem();
+
+}
+
+function mostrarMensagem(){
+
+    if(indice >= mensagens.length){
+
+        setTimeout(() => {
+
+            document.getElementById("boot").style.display = "none";
+            document.getElementById("terminal").style.display = "block";
+
+        },1000);
+
+        return;
+    }
+
+    const loading = document.getElementById("loading");
+    const mensagem = mensagens[indice];
+
+    // Cria uma linha para a mensagem atual
+    const linha = document.createElement("div");
+    loading.appendChild(linha);
+
+    // Mensagens que possuem "..."
+    if(mensagem.endsWith("...")){
+
+        const texto = mensagem.slice(0,-3);
+
+        let pontos = 0;
+        let voltas = 0;
+
+        const animacao = setInterval(() =>{
+
+            linha.textContent = texto + ".".repeat(pontos);
+
+            pontos++;
+
+            if(pontos > 3){
+
+                pontos = 0;
+                voltas++;
+
+                // Quantas vezes repetir a animação
+                if(voltas == 2){
+
+                    clearInterval(animacao);
+
+                    linha.textContent = mensagem;
+
+                    indice++;
+
+                    setTimeout(mostrarMensagem,400);
+
+                }
+
+            }
+
+        },100); // decidi o tempo que demora para carregar rapaz
+
+    }else{
+
+        linha.textContent = mensagem;
+
+        indice++;
+
+        setTimeout(mostrarMensagem,700);
+
+    }
+
+}
+
+escreverTitulo();
+
+</script>
+</body>
+</html>

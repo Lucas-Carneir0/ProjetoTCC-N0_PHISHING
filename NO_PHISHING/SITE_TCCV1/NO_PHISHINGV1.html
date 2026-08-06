@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt de Comando Antigo</title>
+    <link rel="icon" type="image/png" href="IMG1.png">
+    <style>
+        body {
+            background-color: #000;
+            color: #0f0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+            padding: 20px;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .terminal {
+            max-width: 100%;
+        }
+
+        .texto-verde {
+            color: #0f0;
+        }
+
+        .texto-branco {
+            color: #fff;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: #0f0;
+            animation: piscar 0.8s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes piscar {
+            0%, 50% { opacity: 1; }
+            50.1%, 100% { opacity: 0; }
+        }
+
+        .crt-efeito {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="crt-efeito"></div>
+
+    <div class="terminal">
+        <span class="texto-branco">NO_PHISHING [Versão 16.01.2024]</span><br>
+        <span class="texto-branco">&copy; Copyright 2024-2026 Etec Corp.</span><br><br>
+        
+        C:\Documents\Usuario> <span class="texto-verde">dir</span><br>
+        Volume no drive C tem nome: Sistema<br>
+        Volume de Série é KM17-L8C1<br><br>
+        
+        Pasta de C:\Documents\Usuario<br><br>
+        
+        14/07/2026  13:02    &lt;DIR&gt;          . <br>
+        14/07/2026  13:02    &lt;DIR&gt;          .. <br>
+        14/07/2026  13:05                45 projeto_html.txt<br>
+        14/07/2026  13:10             2.450 index.html<br>
+               2 arquivo(s)          2.495 bytes<br>
+               2 pasta(s)     12.345.678 bytes disponíveis<br><br>
+
+        C:\Documents\Usuario> <span class="texto-verde">ipconfig</span><br>
+        Configuração de IP do Windows<br><br>
+
+        Adaptador Ethernet Conexão Local:<br>
+        Sufixo DNS específico de conexão . : localdomain<br>
+        Endereço IP . . . . . . . . . . . . : 192.168.15.10<br>
+        Máscara de Sub-rede . . . . . . . . : 255.255.255.0<br>
+        Gateway Padrão. . . . . . . . . . . : 192.168.15.1<br><br>
+
+        C:\Documents\Usuario> <span class="texto-verde"></span><div class="cursor"></div>
+    </div>
+
+</body>
+</html>
