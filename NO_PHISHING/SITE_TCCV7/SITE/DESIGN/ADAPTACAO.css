@@ -1,0 +1,111 @@
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .topbar {
+        align-items: flex-start;
+    }
+
+    .system-status {
+        display: none;
+    }
+
+    .hero-grid,
+    .split-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid,
+    .check-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .simulation-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .terminal-list > div {
+        grid-template-columns:
+            45px 1fr;
+    }
+
+    .terminal-list small {
+        grid-column: 2;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .terminal-main {
+        width:
+            min(100% - 20px, 1200px);
+
+        padding-top: 25px;
+    }
+
+    .topbar {
+        padding: 10px;
+    }
+
+    .brand-subtitle {
+        font-size: 8px;
+    }
+
+    .hero-panel,
+    .content-module,
+    .simulation-module,
+    .interactive-terminal {
+        padding:
+            20px 15px;
+    }
+
+    .info-grid,
+    .check-grid,
+    .practice-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-panel h2 {
+        letter-spacing: -1px;
+    }
+
+    .terminal-btn {
+        width: 100%;
+    }
+
+    .terminal-input-row {
+        align-items: flex-start;
+
+        flex-wrap: wrap;
+    }
+
+    .terminal-input-row label {
+        width: 100%;
+    }
+
+    .ascii-art {
+        font-size: 6px;
+
+        min-height: 130px;
+
+        text-align: left;
+    }
+
+    .site-footer {
+        flex-direction: column;
+    }
+
+    .settings-panel {
+        top: 100px;
+    }
+}

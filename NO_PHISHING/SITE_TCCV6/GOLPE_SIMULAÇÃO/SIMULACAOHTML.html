@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Simulação educativa de phishing para fins acadêmicos">
+
+    <title>NO_PHISHING - Simulação Educativa</title>
+
+    <link rel="stylesheet" href="SIMULACAOCSS.css">
+</head>
+
+<body>
+
+    <!-- ==============================
+         CABEÇALHO
+    =============================== -->
+
+    <header class="topbar">
+
+        <div class="logo-area">
+            <div class="logo-icon">⚠</div>
+
+            <div>
+                <h1>NO_PHISHING</h1>
+                <span>Simulação Educativa</span>
+            </div>
+        </div>
+
+        <div class="academic-tag">
+            TCC • AMBIENTE CONTROLADO
+        </div>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- ==============================
+             TELA INICIAL
+        =============================== -->
+
+        <section id="home" class="screen active">
+
+            <div class="hero">
+
+                <div class="hero-warning">
+                    ⚠ SIMULAÇÃO ACADÊMICA
+                </div>
+
+                <h2>
+                    Você consegue identificar<br>
+                    uma tentativa de phishing?
+                </h2>
+
+                <p>
+                    Nesta atividade você receberá uma mensagem
+                    fictícia que contém características comuns
+                    encontradas em golpes de phishing.
+                </p>
+
+                <p>
+                    Analise cuidadosamente antes de tomar uma
+                    decisão.
+                </p>
+
+                <button class="primary-btn"
+                        onclick="startSimulation()">
+
+                    INICIAR SIMULAÇÃO
+
+                </button>
+
+                <div class="security-note">
+
+                    🔒 Nenhum dado real será coletado,
+                    armazenado ou enviado.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==============================
+             CAIXA DE ENTRADA
+        =============================== -->
+
+        <section id="inbox" class="screen">
+
+            <div class="section-header">
+
+                <span class="terminal-label">
+                    INBOX.EXE
+                </span>
+
+                <h2>Caixa de entrada</h2>
+
+                <p>
+                    Você recebeu uma nova mensagem.
+                    Analise-a antes de interagir.
+                </p>
+
+            </div>
+
+
+            <div class="mail-container">
+
+                <div class="mail-sidebar">
+
+                    <div class="folder active-folder">
+                        📥 Entrada
+                    </div>
+
+                    <div class="folder">
+                        ⭐ Favoritos
+                    </div>
+
+                    <div class="folder">
+                        🗑 Lixeira
+                    </div>
+
+                </div>
+
+
+                <div class="mail-content">
+
+                    <div class="mail-header">
+
+                        <div class="sender-avatar">
+                            SV
+                        </div>
+
+                        <div class="sender-info">
+
+                            <strong>
+                                Suporte SecureVault
+                            </strong>
+
+                            <span>
+                                atendimento@securevault-verifica.com
+                            </span>
+
+                            <small>
+                                Hoje, 18:42
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="mail-subject">
+
+                        <h3>
+                            ⚠ Sua conta precisa ser verificada imediatamente
+                        </h3>
+
+                    </div>
+
+
+                    <div class="mail-body">
+
+                        <p>
+                            Olá, usuário.
+                        </p>
+
+                        <p>
+                            Detectamos uma atividade incomum em sua
+                            conta. Para evitar o bloqueio permanente
+                            do seu acesso, é necessário realizar uma
+                            verificação imediatamente.
+                        </p>
+
+                        <div class="urgent-box">
+
+                            ⚠ ATENÇÃO
+
+                            <br>
+
+                            Sua conta poderá ser suspensa nas
+                            próximas 24 horas.
+
+                        </div>
+
+
+                        <p>
+                            Clique no botão abaixo para confirmar
+                            seus dados de segurança.
+                        </p>
+
+
+                        <button class="fake-link"
+                                onclick="openFakeLogin()">
+
+                            VERIFICAR MINHA CONTA
+
+                        </button>
+
+
+                        <p class="mail-footer">
+
+                            Caso contrário, seu acesso poderá
+                            permanecer bloqueado.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="analysis-area">
+
+                        <h3>
+                            🔎 O que você acha desta mensagem?
+                        </h3>
+
+                        <p>
+                            Antes de continuar, escolha uma opção:
+                        </p>
+
+
+                        <div class="decision-buttons">
+
+                            <button
+                                onclick="evaluateDecision('legitimo')">
+
+                                ✓ Parece legítimo
+
+                            </button>
+
+
+                            <button
+                                onclick="evaluateDecision('phishing')">
+
+                                ⚠ É provavelmente phishing
+
+                            </button>
+
+
+                            <button
+                                onclick="evaluateDecision('duvida')">
+
+                                ? Não tenho certeza
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div id="decision-feedback"
+                 class="feedback hidden">
+
+            </div>
+
+
+            <button id="continue-after-decision"
+                    class="primary-btn hidden"
+                    onclick="showIndicators()">
+
+                ANALISAR OS SINAIS
+
+            </button>
+
+        </section>
+
+
+
+        <!-- ==============================
+             INDICADORES
+        =============================== -->
+
+        <section id="indicators" class="screen">
+
+            <div class="section-header">
+
+                <span class="terminal-label">
+                    ANALISE.EXE
+                </span>
+
+                <h2>
+                    Analisando a mensagem...
+                </h2>
+
+                <p>
+                    Observe os elementos que poderiam indicar
+                    uma tentativa de phishing.
+                </p>
+
+            </div>
+
+
+            <div class="indicator-grid">
+
+
+                <div class="indicator danger">
+
+                    <span>01</span>
+
+                    <h3>
+                        Remetente suspeito
+                    </h3>
+
+                    <p>
+                        O endereço utiliza um domínio fictício
+                        que não corresponde necessariamente ao
+                        serviço apresentado.
+                    </p>
+
+                </div>
+
+
+                <div class="indicator danger">
+
+                    <span>02</span>
+
+                    <h3>
+                        Senso de urgência
+                    </h3>
+
+                    <p>
+                        A mensagem tenta fazer o usuário agir
+                        rapidamente utilizando uma ameaça de
+                        suspensão da conta.
+                    </p>
+
+                </div>
+
+
+                <div class="indicator warning">
+
+                    <span>03</span>
+
+                    <h3>
+                        Solicitação sensível
+                    </h3>
+
+                    <p>
+                        O usuário é direcionado a confirmar
+                        informações de segurança através de
+                        um botão.
+                    </p>
+
+                </div>
+
+
+                <div class="indicator warning">
+
+                    <span>04</span>
+
+                    <h3>
+                        Link suspeito
+                    </h3>
+
+                    <p>
+                        O endereço apresentado visualmente não
+                        fornece informações suficientes sobre
+                        seu destino.
+                    </p>
+
+                </div>
+
+
+                <div class="indicator danger">
+
+                    <span>05</span>
+
+                    <h3>
+                        Domínio fictício
+                    </h3>
+
+                    <p>
+                        O domínio utilizado nesta simulação
+                        foi criado exclusivamente para fins
+                        educacionais.
+                    </p>
+
+                </div>
+
+
+                <div class="indicator safe">
+
+                    <span>06</span>
+
+                    <h3>
+                        Ambiente controlado
+                    </h3>
+
+                    <p>
+                        Nenhum dado será enviado para servidores
+                        externos durante esta demonstração.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="warning-panel">
+
+                <strong>
+                    ⚠ IMPORTANTE
+                </strong>
+
+                <p>
+                    Em um cenário real, mensagens semelhantes
+                    poderiam direcionar a vítima para páginas
+                    maliciosas destinadas à captura de
+                    informações.
+                </p>
+
+            </div>
+
+
+            <button class="primary-btn"
+                    onclick="openFakeLogin()">
+
+                CONTINUAR SIMULAÇÃO
+
+            </button>
+
+        </section>
+
+
+
+        <!-- ==============================
+             LOGIN CENOGRÁFICO
+        =============================== -->
+
+        <section id="fake-login" class="screen">
+
+            <div class="login-wrapper">
+
+                <div class="simulation-label">
+
+                    ⚠ PÁGINA FICTÍCIA — SIMULAÇÃO
+
+                </div>
+
+
+                <div class="login-card">
+
+                    <div class="vault-logo">
+                        🔐
+                    </div>
+
+                    <h2>
+                        SecureVault
+                    </h2>
+
+                    <p>
+                        Confirme seus dados para continuar.
+                    </p>
+
+
+                    <form id="fake-login-form">
+
+                        <label for="fake-email">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="fake-email"
+                            placeholder="usuario@exemplo.com"
+                            autocomplete="off"
+                        >
+
+
+                        <label for="fake-password">
+                            Senha
+                        </label>
+
+                        <input
+                            type="password"
+                            id="fake-password"
+                            placeholder="Digite sua senha"
+                            autocomplete="off"
+                        >
+
+
+                        <button type="submit"
+                                class="login-btn">
+
+                            CONTINUAR
+
+                        </button>
+
+                    </form>
+
+
+                    <div class="login-warning">
+
+                        🔒 Esta tela é apenas cenográfica.
+                        Nenhuma informação será enviada.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==============================
+             RESULTADO DA SIMULAÇÃO
+        =============================== -->
+
+        <section id="simulation-result"
+                 class="screen">
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    ⚠
+                </div>
+
+                <span class="terminal-label">
+                    SIMULAÇÃO CONCLUÍDA
+                </span>
+
+                <h2>
+                    Você acabou de interagir com
+                    uma tentativa de phishing fictícia.
+                </h2>
+
+                <p>
+                    Em um ataque real, uma página semelhante
+                    poderia tentar capturar informações
+                    digitadas pelo usuário.
+                </p>
+
+
+                <div class="important-message">
+
+                    <strong>
+                        🔒 Seus dados estão seguros.
+                    </strong>
+
+                    <p>
+                        Nesta demonstração, nenhum dado foi
+                        armazenado ou enviado para qualquer
+                        servidor.
+                    </p>
+
+                </div>
+
+
+                <h3>
+                    Como o golpe poderia funcionar?
+                </h3>
+
+                <div class="explanation">
+
+                    <p>
+                        <strong>1.</strong>
+                        O atacante envia uma mensagem tentando
+                        convencer a vítima de que existe um
+                        problema com sua conta.
+                    </p>
+
+                    <p>
+                        <strong>2.</strong>
+                        A mensagem utiliza elementos de urgência
+                        para diminuir o tempo disponível para
+                        análise.
+                    </p>
+
+                    <p>
+                        <strong>3.</strong>
+                        A vítima é direcionada para uma página
+                        semelhante a uma tela de login.
+                    </p>
+
+                    <p>
+                        <strong>4.</strong>
+                        Em um ataque real, os dados digitados
+                        poderiam ser capturados.
+                    </p>
+
+                </div>
+
+
+                <button class="primary-btn"
+                        onclick="startQuiz()">
+
+                    INICIAR DESAFIO
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==============================
+             QUIZ
+        =============================== -->
+
+        <section id="quiz" class="screen">
+
+            <div class="section-header">
+
+                <span class="terminal-label">
+                    QUIZ.EXE
+                </span>
+
+                <h2>
+                    Teste seus conhecimentos
+                </h2>
+
+                <p>
+                    Responda às perguntas para descobrir
+                    seu nível de atenção.
+                </p>
+
+            </div>
+
+
+            <div class="quiz-card">
+
+                <div id="question-number">
+                    Pergunta 1 de 3
+                </div>
+
+                <h3 id="question-text">
+                    Qual elemento desta mensagem é um
+                    forte indicador de phishing?
+                </h3>
+
+
+                <div id="quiz-options">
+
+                </div>
+
+
+                <div id="quiz-feedback"
+                     class="quiz-feedback hidden">
+
+                </div>
+
+
+                <button id="next-question"
+                        class="primary-btn hidden"
+                        onclick="nextQuestion()">
+
+                    PRÓXIMA PERGUNTA
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==============================
+             RESULTADO FINAL
+        =============================== -->
+
+        <section id="final"
+                 class="screen">
+
+            <div class="final-card">
+
+                <div class="trophy">
+                    🛡️
+                </div>
+
+                <span class="terminal-label">
+                    RESULTADO FINAL
+                </span>
+
+                <h2>
+                    Simulação encerrada
+                </h2>
+
+
+                <div class="score-display">
+
+                    <span>
+                        Pontuação
+                    </span>
+
+                    <strong id="final-score">
+                        0
+                    </strong>
+
+                    <small>
+                        pontos
+                    </small>
+
+                </div>
+
+
+                <div id="classification"
+                     class="classification">
+
+                </div>
+
+
+                <h3>
+                    Recomendações de segurança
+                </h3>
+
+
+                <div class="recommendations">
+
+                    <div>
+                        🔎
+                        <strong>
+                            Verifique o remetente
+                        </strong>
+
+                        <p>
+                            Observe cuidadosamente o endereço
+                            utilizado na mensagem.
+                        </p>
+                    </div>
+
+
+                    <div>
+                        🔗
+                        <strong>
+                            Analise os links
+                        </strong>
+
+                        <p>
+                            Passe o cursor sobre links antes
+                            de acessá-los e confira o endereço.
+                        </p>
+                    </div>
+
+
+                    <div>
+                        ⏱️
+                        <strong>
+                            Desconfie da urgência
+                        </strong>
+
+                        <p>
+                            Pressa e ameaças são estratégias
+                            comuns para induzir decisões.
+                        </p>
+                    </div>
+
+
+                    <div>
+                        🔐
+                        <strong>
+                            Nunca forneça credenciais
+                            precipitadamente
+                        </strong>
+
+                        <p>
+                            Procure acessar o serviço diretamente
+                            pelo endereço oficial conhecido.
+                        </p>
+                    </div>
+
+
+                    <div>
+                        🚨
+                        <strong>
+                            Denuncie mensagens suspeitas
+                        </strong>
+
+                        <p>
+                            Se houver dúvida, não clique e
+                            procure o canal oficial da empresa.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="academic-disclaimer">
+
+                    <strong>
+                        PROJETO ACADÊMICO — NO_PHISHING
+                    </strong>
+
+                    <p>
+                        Esta aplicação é exclusivamente
+                        educacional. Nenhuma informação inserida
+                        durante a simulação é armazenada ou
+                        transmitida.
+                    </p>
+
+                </div>
+
+
+                <button class="primary-btn"
+                        onclick="restartSimulation()">
+
+                    REFAZER SIMULAÇÃO
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <span>
+            NO_PHISHING
+        </span>
+
+        <span>
+            Simulação acadêmica • 2026
+        </span>
+
+    </footer>
+
+
+    <script src="SIMULACAOJS.js"></script>
+
+</body>
+
+</html>

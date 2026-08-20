@@ -1,0 +1,280 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    color:#00ff00;
+    font-family:"Courier New", monospace;
+    overflow-x:hidden;
+    padding:25px;
+    background:radial-gradient(circle, #031b03 0%, #000 75%);
+    text-shadow:0 0 4px #00ff00,0 0 8px rgba(0,255,0,.5);
+}
+
+a{
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    gap:15px;
+    width:100%;
+    color:#00ff00;
+    text-decoration:none;
+    border:1px dashed #00ff00;
+    padding:15px;
+    transition:.3s;
+}
+
+a::before{
+    content:"";
+    position:absolute;
+    top:-100%;
+    left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(to bottom,transparent,rgba(0,255,0,.35),transparent);
+    transition:none;
+}
+    
+a:hover::before{
+    animation:linkScan .45s linear;
+}
+
+@keyframes linkScan{
+    from{
+        transform:translateY(-100%);
+    }
+    to{
+        transform:translateY(220%);
+    }
+}
+
+a:hover, a:focus-visible{
+    background:#00ff00;
+    color:#000;
+    box-shadow:
+        0 0 10px #00ff00,
+        0 0 20px #00ff00,
+        inset 0 0 10px #00ff00;
+}
+
+    
+.sumario{
+    border-style: dashed;
+    border-color: #00ff00;
+    border-width: 5px;
+    padding: 15px;
+}
+
+.terminal{
+    max-width:1200px;
+    margin:auto;
+    white-space:pre-wrap;
+    animation:flicker .8s infinite;
+    filter:drop-shadow(0 0 8px #00ff00);
+}
+
+.verde{
+    color:#00ff00;
+}
+
+.branco{
+    color:#FFF;
+}
+
+.azul{
+    color:#00BFFF;
+}
+
+.amarelo{
+    color:#ffff66;
+}
+
+hr{
+    border:1px dashed #00aa00;
+    margin:25px 0;
+}
+
+.bloco{
+    margin-top:25px;
+    margin-bottom:35px;
+}
+
+.titulo{
+    color:#00ffff;
+    margin-bottom:12px;
+    font-size:22px;
+}
+
+.subtitulo{
+    color:#ffff00;
+    margin-top:15px;
+    margin-bottom:8px;
+}
+
+.cursor{
+    display:inline-block;
+    width:12px;
+    height:22px;
+    background:#00ff00;
+    animation:blink .8s infinite;
+}
+
+@keyframes blink{
+0%,50%{
+opacity:1;
+}
+50.1%,100%{
+opacity:0;
+}
+}
+
+.crt{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:
+    linear-gradient(rgba(18,16,16,0) 50%, rgba(0,0,0,.25) 50%),
+    linear-gradient(90deg,
+        rgba(255,0,0,.05),
+        rgba(0,255,0,.03),
+        rgba(0,0,255,.05));
+    background-size:100% 4px,6px 100%;
+    pointer-events:none;
+    overflow:hidden;
+}
+    
+
+/* Faixa de atualização da tela */
+.crt::before{
+    content:"";
+    position:absolute;
+    top:-25%;
+    left:0;
+    width:100%;
+    height:25%;
+    background:linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,.08),
+        rgba(0,255,0,.18),
+        rgba(255,255,255,.08),
+        rgba(255,255,255,0)
+    );
+    animation:scan 5s linear infinite;
+}
+
+/* Linha brilhante */
+.crt::after{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:3px;
+    background:rgba(255,255,255,.35);
+    box-shadow:
+        0 0 10px #00ff00,
+        0 0 20px #00ff00;
+    animation:refresh 3s linear infinite;
+}
+
+#boot{
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:right;
+    background:black;
+}
+
+.logo{
+    width:150px;
+    margin-bottom:25px;
+    filter: drop-shadow(0 0 10px #00ff00);
+}
+
+#titulo{
+    color:#00ff00;
+    font-size:48px;
+    margin-bottom:25px;
+    letter-spacing:5px;
+}
+
+#loading{
+    white-space:nowrap;
+    overflow-x:auto;
+    color:#00ff00;
+    font-size:22px;
+}
+
+@keyframes scan{
+    from{
+        transform:translateY(-120%);
+    }
+    to{
+        transform:translateY(600%);
+    }
+}
+
+@keyframes refresh{
+    from{
+        transform:translateY(-10px);
+    }
+    to{
+        transform:translateY(100vh);
+    }
+}
+
+@keyframes flicker{
+    0%{
+        opacity:1;
+        transform:translate(0);
+    }
+    20%{
+        opacity:.97;
+        transform:translateX(.4px);
+    }
+    40%{
+        opacity:.98;
+        transform:translateX(-.5px);
+    }
+    60%{
+        opacity:1;
+        transform:translateY(.3px);
+    }
+    80%{
+        opacity:.985;
+        transform:translateX(.2px);
+    }
+    100%{
+        opacity:1;
+        transform:translate(0);
+    }
+}
+#barra{
+
+    position:fixed;
+    top:0;
+
+    left:0;
+
+    width:100%;
+    height:6px;
+
+    background:#111;
+
+}
+
+#progresso{
+
+    width:0;
+
+    height:100%;
+
+    background:#00ff00;
+
+}

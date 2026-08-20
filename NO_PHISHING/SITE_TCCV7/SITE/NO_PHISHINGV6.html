@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NO_PHISHING — terminal educacional sobre phishing e roubo de dados.">
+    <title>NO_PHISHING - Terminal Educacional</title>
+    <link rel="icon" type="image/png" href="../LOGO/IMAGE1.png">
+    <link rel="stylesheet" href="DESIGN/MAIN.css">
+</head>
+
+<body>
+    <div id="boot" class="boot-screen" aria-label="Inicialização do sistema">
+        <div class="boot-frame">
+            <div class="boot-status"><span class="status-dot"></span> SEC-LAB / BOOT SEQUENCE</div>
+            <pre id="asciiArt" class="ascii-art" aria-label="Arte ASCII de segurança digital"></pre>
+            <h1 id="titulo" class="boot-title" aria-live="polite"></h1>
+            <div id="loading" class="boot-log" aria-live="polite"></div>
+            <div class="boot-progress"><span id="bootProgress"></span></div>
+            <button id="desativarIntro" class="terminal-btn ghost" type="button">[ PULAR INTRODUÇÃO ]</button>
+        </div>
+    </div>
+
+    <div id="terminal" class="app-shell" hidden>
+        <div class="crt" aria-hidden="true"></div>
+        <canvas id="matrixCanvas" class="matrix-canvas" aria-hidden="true"></canvas>
+        <div id="glitchLayer" class="glitch-layer" aria-hidden="true"></div>
+
+        <div id="barra" class="scroll-progress" aria-hidden="true">
+            <div id="progresso"></div>
+        </div>
+
+        <header class="topbar">
+            <div class="brand">
+                <span class="brand-mark">[N]</span>
+                <div>
+                    <div class="brand-title">NO_PHISHING</div>
+                    <div class="brand-subtitle">SECURITY AWARENESS TERMINAL // v7.0</div>
+                </div>
+            </div>
+            <div class="system-status" aria-label="Status do sistema">
+                <span class="status-dot"></span>
+                <span>CORE ONLINE</span>
+                <span class="separator">|</span>
+                <span>DEFENSE ACTIVE</span>
+            </div>
+        </header>
+
+        <main class="terminal-main">
+            <section class="hero-panel cascade-section" data-module="BOOTSTRAP" id="home">
+                <div class="module-line"><span>01</span> MODULE: SECURITY_BOOT</div>
+                <div class="hero-grid">
+                    <div>
+                        <div class="eyebrow">&gt; PHISHING AWARENESS SYSTEM ONLINE</div>
+                        <h2>Investigue o golpe.<br><span>Proteja os dados.</span></h2>
+                        <p class="lead">Uma experiência educativa que transforma o terminal em um laboratório de
+                            análise. Observe sinais, questione mensagens e descubra como ataques de phishing tentam
+                            manipular decisões.</p>
+                        <div class="hero-actions">
+                            <button class="terminal-btn primary" id="btnSimulation" type="button">&gt; EXECUTE PHISHING
+                                SIMULATION</button>
+                            <a class="terminal-btn" href="#02">[ INICIAR ANÁLISE ]</a>
+                        </div>
+                    </div>
+                    <div class="threat-card" aria-label="Resumo fictício de ameaça">
+                        <div class="card-head">THREAT_MONITOR.exe <span>● LIVE</span></div>
+                        <div class="metric"><span>VECTOR</span><strong>EMAIL</strong></div>
+                        <div class="metric"><span>TARGET</span><strong>USER</strong></div>
+                        <div class="metric"><span>RISK</span><strong class="risk">HIGH</strong></div>
+                        <div class="metric"><span>MODE</span><strong>EDUCATIONAL</strong></div>
+                        <div class="mini-code">const defense = {<br>&nbsp;&nbsp;verify: true,<br>&nbsp;&nbsp;click:
+                            false<br>};</div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider">// ANALYSIS CHANNEL OPEN //</div>
+
+            <section id="01" class="content-module cascade-section" data-module="INTRODUCTION">
+                <div class="cmd">NO_PHISHING@SECURITY:~$ open introduction.txt</div>
+                <div class="section-title"><span>[01]</span> INTRODUÇÃO</div>
+                <p>Phishing é uma técnica de engenharia social usada para induzir pessoas a realizar ações que favorecem
+                    um golpe, como clicar em links, abrir anexos ou fornecer informações. A abordagem costuma explorar
+                    confiança, medo, curiosidade ou urgência.</p>
+                <p>Neste laboratório, os exemplos são fictícios e servem para desenvolver uma postura de análise antes
+                    de qualquer interação com mensagens suspeitas.</p>
+            </section>
+
+            <section id="02" class="content-module cascade-section" data-module="PHISHING">
+                <div class="cmd">NO_PHISHING@SECURITY:~$ parse phishing.txt</div>
+                <div class="section-title"><span>[02]</span> O QUE É PHISHING</div>
+                <div class="info-grid">
+                    <article class="info-card"><span class="card-index">A</span>
+                        <h3>Engenharia social</h3>
+                        <p>O ataque explora o comportamento humano para aumentar a chance de uma decisão impulsiva.</p>
+                    </article>
+                    <article class="info-card"><span class="card-index">B</span>
+                        <h3>Falsa confiança</h3>
+                        <p>O criminoso pode imitar empresas, serviços, pessoas ou situações que parecem familiares.</p>
+                    </article>
+                    <article class="info-card"><span class="card-index">C</span>
+                        <h3>Ação induzida</h3>
+                        <p>A mensagem pode pedir clique, resposta, download ou fornecimento de dados.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="03" class="content-module cascade-section" data-module="ATTACK_VECTORS">
+                <div class="cmd">NO_PHISHING@SECURITY:~$ list attack_vectors</div>
+                <div class="section-title"><span>[03]</span> TÉCNICAS UTILIZADAS</div>
+                <div class="terminal-list">
+                    <div><b>01</b><span>E-mails falsos</span><small>Mensagens que imitam comunicações legítimas.</small>
+                    </div>
+                    <div><b>02</b><span>Smishing</span><small>Golpes distribuídos por SMS ou aplicativos de
+                            mensagem.</small></div>
+                    <div><b>03</b><span>Vishing</span><small>Tentativas de fraude realizadas por chamadas de
+                            voz.</small></div>
+                    <div><b>04</b><span>Redes sociais</span><small>Perfis, anúncios ou mensagens usados para criar
+                            confiança.</small></div>
+                    <div><b>05</b><span>Sites falsos</span><small>Páginas que imitam serviços reais para induzir
+                            ações.</small></div>
+                </div>
+            </section>
+
+            <section id="04" class="content-module cascade-section" data-module="DATA_THEFT">
+                <div class="cmd">NO_PHISHING@SECURITY:~$ inspect data_theft.log</div>
+                <div class="section-title"><span>[04]</span> ROUBO DE DADOS</div>
+                <div class="split-panel">
+                    <div>
+                        <h3>[ DADOS ALVO ]</h3>
+                        <p>Credenciais, informações pessoais, dados financeiros e outras informações podem ser alvos de
+                            campanhas fraudulentas.</p>
+                    </div>
+                    <div>
+                        <h3>[ CONSEQUÊNCIAS ]</h3>
+                        <p>O uso indevido de informações pode causar perdas financeiras, invasão de contas e exposição
+                            de dados.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="05" class="content-module cascade-section" data-module="DETECTION">
+                <div class="cmd">NO_PHISHING@SECURITY:~$ run detection_check</div>
+                <div class="section-title"><span>[05]</span> COMO IDENTIFICAR UM GOLPE</div>
+                <div class="check-grid">
+                    <div><span>01</span><b>Remetente suspeito</b>
+                        <p>Confira o endereço completo, não apenas o nome exibido.</p>
+                    </div>
+                    <div><span>02</span><b>Domínio falso</b>
+                        <p>Observe pequenas alterações no domínio ou no endereço.</p>
+                    </div>
+                    <div><span>03</span><b>Urgência artificial</b>
+                        <p>Ameaças e prazos curtos podem tentar impedir uma análise cuidadosa.</p>
+                    </div>
+                    <div><span>04</span><b>Pedido de senha</b>
+                        <p>Desconfie de mensagens que solicitam credenciais ou dados sensíveis.</p>
+                    </div>
+                    <div><span>05</span><b>Link ou anexo inesperado</b>
+                        <p>Verifique o destino antes de clicar e desconfie de arquivos não solicitados.</p>
+                    </div>
+                    <div><span>06</span><b>Erros e inconsistências</b>
+                        <p>Observe linguagem, identidade visual, contexto e informações incoerentes.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="06" class="content-module cascade-section" data-module="DEFENSE">
+                <div class="cmd">NO_PHISHING@SECURITY:~$ enable safe_habits</div>
+                <div class="section-title"><span>[06]</span> COMO SE PROTEGER</div>
+                <ol class="defense-list">
+                    <li><b>Pare.</b> Não clique por impulso.</li>
+                    <li><b>Verifique.</b> Confira remetente, domínio e contexto.</li>
+                    <li><b>Acesse por canais oficiais.</b> Em vez de usar o link recebido, abra o serviço diretamente.
+                    </li>
+                    <li><b>Não compartilhe credenciais.</b> Senhas e códigos de autenticação devem ser tratados como
+                        informações sensíveis.</li>
+                    <li><b>Reporte.</b> Quando possível, encaminhe a mensagem suspeita para o canal oficial responsável.
+                    </li>
+                </ol>
+            </section>
+
+            <section id="07" class="content-module cascade-section" data-module="BEST_PRACTICES">
+                <div class="cmd">NO_PHISHING@SECURITY:~$ load best_practices.cfg</div>
+                <div class="section-title"><span>[07]</span> BOAS PRÁTICAS</div>
+                <div class="practice-grid">
+                    <div>AUTH-2FA <span>Autenticação em dois fatores</span></div>
+                    <div>PATCH <span>Mantenha sistemas atualizados</span></div>
+                    <div>BACKUP <span>Mantenha cópias de segurança</span></div>
+                    <div>VERIFY <span>Confirme solicitações por canais oficiais</span></div>
+                </div>
+            </section>
+
+            <section id="08" class="content-module cascade-section" data-module="REFERENCES">
+                <div class="cmd">NO_PHISHING@SECURITY:~$ open references.txt</div>
+                <div class="section-title"><span>[08]</span> REFERÊNCIAS</div>
+                <p>Este módulo está reservado para as referências bibliográficas utilizadas no TCC. Mantenha aqui as
+                    fontes efetivamente consultadas no trabalho para que a documentação do projeto permaneça coerente.
+                </p>
+                <div class="reference-note">[ TCC / ACADEMIC MODULE ] &gt; conteúdo educacional para conscientização.
+                </div>
+            </section>
+
+            <section class="simulation-module cascade-section" id="simulation-module" data-module="SIMULATION">
+                <div class="module-line"><span>09</span> MODULE: PHISHING_SIMULATOR</div>
+                <div class="simulation-inner">
+                    <div>
+                        <div class="eyebrow">&gt; CONTROLLED ENVIRONMENT</div>
+                        <h2>Teste sua capacidade de detectar um golpe.</h2>
+                        <p>Entre no ambiente de e-mail fictício e analise uma mensagem antes de decidir. A simulação não
+                            envia ou armazena dados reais.</p>
+                    </div>
+                    <button class="terminal-btn primary large" id="btnSimulationBottom" type="button">&gt;
+                        RUN_SIMULATION.exe</button>
+                </div>
+            </section>
+
+            <section class="interactive-terminal cascade-section" id="terminalConsole" aria-labelledby="terminalTitle">
+                <div class="terminal-window">
+                    <div class="window-bar"><span id="terminalTitle">NO_PHISHING@SECURITY:~$</span><span>INTERACTIVE
+                            CONSOLE</span></div>
+                    <div id="terminalOutput" class="terminal-output" aria-live="polite">
+                        <div>&gt; Console ready.</div>
+                        <div>&gt; Type <b>help</b> to list available commands.</div>
+                    </div>
+                    <form id="terminalForm" class="terminal-input-row" autocomplete="off">
+                        <label for="terminalInput">NO_PHISHING@SECURITY:~$</label>
+                        <input id="terminalInput" type="text" inputmode="text" spellcheck="false"
+                            aria-label="Digite um comando do terminal">
+                        <span class="cursor-block" aria-hidden="true"></span>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div>NO_PHISHING // TERMINAL EDUCACIONAL</div>
+            <div>© 2026 - PROJETO DE TCC</div>
+        </footer>
+
+        <div id="simulationOverlay" class="module-overlay" hidden aria-live="assertive"
+            aria-label="Carregando simulação">
+            <div class="overlay-box">
+                <div class="overlay-title">PHISHING_SIMULATOR</div>
+                <div id="simulationLog" class="overlay-log"></div>
+                <div class="boot-progress"><span id="simulationProgress"></span></div>
+            </div>
+        </div>
+
+        <div id="painelConfigs" class="settings-panel">
+            <button id="abrirConfigs" type="button" aria-expanded="false"
+                aria-controls="configContent">C<br>O<br>N<br>F<br>I<br>G</button>
+            <div id="configContent" class="conteudoConfigs">
+                <button id="btnCRT" type="button">Desativar efeito CRT</button>
+                <button id="reativarIntro" type="button">Reativar introdução</button>
+                <button id="btnReduced" type="button">Reduzir efeitos</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="FUNCIONALIDADES/MAIN.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1294 @@
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --green: #00ff66;
+    --green-dark: #00a844;
+    --green-soft: #55ff99;
+
+    --black: #020502;
+    --dark: #071007;
+    --panel: #0b150b;
+
+    --red: #ff4545;
+    --yellow: #ffd84a;
+    --white: #eaffea;
+
+    --border: rgba(0, 255, 102, 0.25);
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #092009 0%,
+            #020502 65%,
+            #000000 100%
+        );
+
+    color: var(--white);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   EFEITO CRT
+========================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.015) 0px,
+            rgba(255,255,255,0.015) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    z-index: 999;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.topbar {
+    min-height: 80px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 5%;
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:
+        rgba(0, 0, 0, 0.75);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+
+.logo-area {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+
+    place-items: center;
+
+    border:
+        1px solid var(--green);
+
+    color:
+        var(--green);
+
+    font-size: 25px;
+
+    box-shadow:
+        0 0 15px
+        rgba(0,255,102,0.25);
+}
+
+
+.logo-area h1 {
+    color: var(--green);
+
+    font-size: 22px;
+
+    letter-spacing: 2px;
+}
+
+
+.logo-area span {
+    color: #799879;
+
+    font-size: 11px;
+}
+
+
+.academic-tag {
+    color: var(--green);
+
+    border:
+        1px solid var(--border);
+
+    padding: 8px 12px;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   TELAS
+========================================= */
+
+main {
+    width: 100%;
+}
+
+
+.screen {
+    display: none;
+
+    width: 100%;
+
+    min-height:
+        calc(100vh - 140px);
+
+    padding: 60px 5%;
+}
+
+
+.screen.active {
+    display: block;
+
+    animation:
+        fadeIn 0.5s ease;
+}
+
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   TELA INICIAL
+========================================= */
+
+.hero {
+    max-width: 850px;
+
+    margin:
+        80px auto;
+
+    text-align: center;
+
+    padding: 50px 30px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(4, 15, 4, 0.8);
+
+    box-shadow:
+        0 0 40px
+        rgba(0,255,102,0.06);
+}
+
+
+.hero-warning {
+    display: inline-block;
+
+    color: var(--yellow);
+
+    border:
+        1px solid
+        rgba(255,216,74,0.4);
+
+    padding: 8px 15px;
+
+    margin-bottom: 25px;
+
+    font-size: 12px;
+}
+
+
+.hero h2 {
+    color: var(--green);
+
+    font-size:
+        clamp(28px, 5vw, 50px);
+
+    line-height: 1.2;
+
+    margin-bottom: 25px;
+}
+
+
+.hero p {
+    color: #a9b9a9;
+
+    line-height: 1.8;
+
+    max-width: 650px;
+
+    margin: 10px auto;
+}
+
+
+.security-note {
+    margin-top: 25px;
+
+    color: #75a075;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   BOTÕES
+========================================= */
+
+button {
+    font-family:
+        "Courier New",
+        monospace;
+
+    cursor: pointer;
+}
+
+
+.primary-btn {
+    margin-top: 30px;
+
+    padding: 15px 25px;
+
+    background:
+        transparent;
+
+    border:
+        1px solid var(--green);
+
+    color:
+        var(--green);
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    transition: 0.2s;
+}
+
+
+.primary-btn:hover {
+    background:
+        var(--green);
+
+    color:
+        #000;
+
+    box-shadow:
+        0 0 20px
+        rgba(0,255,102,0.4);
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================
+   CABEÇALHO DAS SEÇÕES
+========================================= */
+
+.section-header {
+    max-width: 1100px;
+
+    margin:
+        0 auto 35px;
+}
+
+
+.terminal-label {
+    color: var(--green);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+
+.section-header h2 {
+    margin-top: 10px;
+
+    color: var(--white);
+
+    font-size: 32px;
+}
+
+
+.section-header p {
+    margin-top: 10px;
+
+    color: #809080;
+}
+
+
+/* =========================================
+   E-MAIL
+========================================= */
+
+.mail-container {
+    max-width: 1100px;
+
+    min-height: 550px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        200px 1fr;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        #061006;
+}
+
+
+.mail-sidebar {
+    border-right:
+        1px solid var(--border);
+
+    padding: 20px;
+}
+
+
+.folder {
+    padding: 13px;
+
+    color: #789078;
+
+    margin-bottom: 8px;
+}
+
+
+.active-folder {
+    color: var(--green);
+
+    background:
+        rgba(0,255,102,0.07);
+
+    border-left:
+        2px solid var(--green);
+}
+
+
+.mail-content {
+    padding: 30px;
+}
+
+
+.mail-header {
+    display: flex;
+
+    gap: 15px;
+
+    align-items: center;
+
+    border-bottom:
+        1px solid var(--border);
+
+    padding-bottom: 20px;
+}
+
+
+.sender-avatar {
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+
+    place-items: center;
+
+    background:
+        #183018;
+
+    color: var(--green);
+
+    border-radius: 50%;
+}
+
+
+.sender-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.sender-info span,
+.sender-info small {
+    color: #789078;
+
+    font-size: 11px;
+}
+
+
+.mail-subject {
+    padding:
+        25px 0;
+}
+
+
+.mail-subject h3 {
+    color: var(--white);
+}
+
+
+.mail-body {
+    color: #b6c6b6;
+
+    line-height: 1.7;
+}
+
+
+.mail-body p {
+    margin:
+        15px 0;
+}
+
+
+.urgent-box {
+    margin:
+        20px 0;
+
+    padding: 15px;
+
+    border:
+        1px solid
+        rgba(255,69,69,0.4);
+
+    color:
+        var(--red);
+
+    background:
+        rgba(255,69,69,0.05);
+
+    font-weight: bold;
+}
+
+
+.fake-link {
+    display: block;
+
+    margin: 25px auto;
+
+    padding: 15px 25px;
+
+    border: 0;
+
+    background:
+        #176b37;
+
+    color:
+        white;
+
+    font-weight: bold;
+
+    border-radius: 4px;
+
+    transition: 0.2s;
+}
+
+
+.fake-link:hover {
+    background:
+        #22964f;
+
+    transform:
+        translateY(-2px);
+}
+
+
+.mail-footer {
+    color: #607060;
+
+    font-size: 12px;
+}
+
+
+.analysis-area {
+    margin-top: 35px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+.analysis-area h3 {
+    color: var(--green);
+}
+
+
+.analysis-area p {
+    color: #799079;
+
+    font-size: 13px;
+}
+
+
+.decision-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+.decision-buttons button {
+    padding: 12px 15px;
+
+    background:
+        transparent;
+
+    border:
+        1px solid var(--border);
+
+    color:
+        #a5b5a5;
+
+    transition: 0.2s;
+}
+
+
+.decision-buttons button:hover {
+    color:
+        var(--green);
+
+    border-color:
+        var(--green);
+}
+
+
+.feedback {
+    max-width: 1100px;
+
+    margin: 20px auto 0;
+
+    padding: 18px;
+
+    border:
+        1px solid var(--border);
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   INDICADORES
+========================================= */
+
+.indicator-grid {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+
+.indicator {
+    padding: 25px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(7,16,7,0.8);
+}
+
+
+.indicator span {
+    color: var(--green);
+
+    font-size: 12px;
+}
+
+
+.indicator h3 {
+    margin:
+        15px 0 10px;
+}
+
+
+.indicator p {
+    color: #819081;
+
+    line-height: 1.6;
+
+    font-size: 13px;
+}
+
+
+.indicator.danger {
+    border-left:
+        3px solid var(--red);
+}
+
+
+.indicator.warning {
+    border-left:
+        3px solid var(--yellow);
+}
+
+
+.indicator.safe {
+    border-left:
+        3px solid var(--green);
+}
+
+
+.warning-panel {
+    max-width: 1100px;
+
+    margin:
+        30px auto;
+
+    padding: 20px;
+
+    border:
+        1px solid
+        rgba(255,216,74,0.3);
+
+    color: #cfc58b;
+}
+
+
+.warning-panel p {
+    margin-top: 8px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   LOGIN CENOGRÁFICO
+========================================= */
+
+.login-wrapper {
+    max-width: 430px;
+
+    margin:
+        40px auto;
+
+    text-align: center;
+}
+
+
+.simulation-label {
+    margin-bottom: 15px;
+
+    color:
+        var(--yellow);
+
+    font-size: 12px;
+}
+
+
+.login-card {
+    padding: 35px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        #071007;
+
+    box-shadow:
+        0 0 35px
+        rgba(0,255,102,0.08);
+}
+
+
+.vault-logo {
+    font-size: 40px;
+
+    margin-bottom: 10px;
+}
+
+
+.login-card h2 {
+    color: var(--green);
+
+    margin-bottom: 8px;
+}
+
+
+.login-card > p {
+    color: #708070;
+
+    font-size: 13px;
+
+    margin-bottom: 25px;
+}
+
+
+.login-card form {
+    text-align: left;
+}
+
+
+.login-card label {
+    display: block;
+
+    margin:
+        15px 0 6px;
+
+    color:
+        #91a691;
+
+    font-size: 12px;
+}
+
+
+.login-card input {
+    width: 100%;
+
+    padding: 13px;
+
+    border:
+        1px solid #244424;
+
+    background:
+        #020702;
+
+    color:
+        white;
+
+    outline: none;
+
+    font-family:
+        "Courier New",
+        monospace;
+}
+
+
+.login-card input:focus {
+    border-color:
+        var(--green);
+}
+
+
+.login-btn {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 13px;
+
+    border: 0;
+
+    background:
+        var(--green);
+
+    color:
+        #000;
+
+    font-weight: bold;
+}
+
+
+.login-warning {
+    margin-top: 20px;
+
+    padding: 12px;
+
+    background:
+        rgba(0,255,102,0.05);
+
+    color:
+        #6e9b6e;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   RESULTADO
+========================================= */
+
+.result-card,
+.final-card {
+    max-width: 850px;
+
+    margin:
+        30px auto;
+
+    padding: 45px;
+
+    text-align: center;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(5,15,5,0.85);
+}
+
+
+.result-icon,
+.trophy {
+    font-size: 55px;
+
+    margin-bottom: 20px;
+}
+
+
+.result-card h2,
+.final-card h2 {
+    margin:
+        15px 0;
+
+    color:
+        var(--green);
+
+    line-height: 1.4;
+}
+
+
+.result-card > p {
+    color: #94a494;
+
+    line-height: 1.7;
+}
+
+
+.important-message {
+    margin:
+        30px 0;
+
+    padding: 20px;
+
+    text-align: left;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(0,255,102,0.04);
+}
+
+
+.important-message strong {
+    color: var(--green);
+}
+
+
+.important-message p {
+    color: #839383;
+
+    margin-top: 8px;
+}
+
+
+.result-card h3 {
+    color: var(--white);
+
+    margin:
+        30px 0 15px;
+}
+
+
+.explanation {
+    text-align: left;
+
+    color: #91a191;
+
+    line-height: 1.7;
+}
+
+
+.explanation p {
+    margin:
+        12px 0;
+}
+
+
+/* =========================================
+   QUIZ
+========================================= */
+
+.quiz-card {
+    max-width: 800px;
+
+    margin: auto;
+
+    padding: 35px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        #071007;
+}
+
+
+#question-number {
+    color: var(--green);
+
+    font-size: 12px;
+
+    margin-bottom: 20px;
+}
+
+
+#question-text {
+    color: var(--white);
+
+    line-height: 1.5;
+
+    margin-bottom: 25px;
+}
+
+
+.quiz-option {
+    width: 100%;
+
+    padding: 15px;
+
+    margin:
+        8px 0;
+
+    text-align: left;
+
+    background:
+        transparent;
+
+    color:
+        #a5b5a5;
+
+    border:
+        1px solid var(--border);
+
+    transition: 0.2s;
+}
+
+
+.quiz-option:hover {
+    color:
+        var(--green);
+
+    border-color:
+        var(--green);
+}
+
+
+.quiz-option.correct {
+    border-color:
+        var(--green);
+
+    color:
+        var(--green);
+
+    background:
+        rgba(0,255,102,0.06);
+}
+
+
+.quiz-option.wrong {
+    border-color:
+        var(--red);
+
+    color:
+        var(--red);
+
+    background:
+        rgba(255,69,69,0.06);
+}
+
+
+.quiz-feedback {
+    margin-top: 20px;
+
+    padding: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   RESULTADO FINAL
+========================================= */
+
+.score-display {
+    margin:
+        30px auto;
+
+    padding: 25px;
+
+    border:
+        1px solid var(--border);
+
+    max-width: 300px;
+}
+
+
+.score-display span,
+.score-display small {
+    display: block;
+
+    color: #789078;
+}
+
+
+.score-display strong {
+    display: block;
+
+    font-size: 55px;
+
+    color: var(--green);
+
+    margin: 8px;
+}
+
+
+.classification {
+    padding: 15px;
+
+    margin-bottom: 35px;
+
+    border:
+        1px solid var(--border);
+
+    line-height: 1.6;
+}
+
+
+.recommendations {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    text-align: left;
+}
+
+
+.recommendations > div {
+    padding: 20px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(0,255,102,0.02);
+}
+
+
+.recommendations strong {
+    color:
+        var(--green);
+
+    display: block;
+
+    margin:
+        8px 0;
+}
+
+
+.recommendations p {
+    color:
+        #7f907f;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+.academic-disclaimer {
+    margin-top: 30px;
+
+    padding: 20px;
+
+    border:
+        1px dashed
+        var(--green);
+
+    color:
+        #819581;
+
+    line-height: 1.6;
+
+    font-size: 12px;
+}
+
+
+.academic-disclaimer strong {
+    color:
+        var(--green);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    min-height: 60px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding:
+        15px 5%;
+
+    border-top:
+        1px solid var(--border);
+
+    color:
+        #506050;
+
+    font-size: 11px;
+}
+
+
+footer span:first-child {
+    color:
+        var(--green);
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 850px) {
+
+    .academic-tag {
+        display: none;
+    }
+
+    .mail-container {
+        grid-template-columns: 1fr;
+    }
+
+    .mail-sidebar {
+        display: none;
+    }
+
+    .indicator-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .recommendations {
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .screen {
+        padding:
+            35px 15px;
+    }
+
+    .hero {
+        margin:
+            30px auto;
+
+        padding:
+            35px 20px;
+    }
+
+    .mail-content {
+        padding:
+            20px;
+    }
+
+    .indicator-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .decision-buttons {
+        flex-direction:
+            column;
+    }
+
+    .decision-buttons button {
+        width: 100%;
+    }
+
+    .result-card,
+    .final-card {
+        padding:
+            25px 18px;
+    }
+
+    footer {
+        flex-direction:
+            column;
+
+        gap: 8px;
+    }
+
+}
