@@ -1,0 +1,243 @@
+ .crt {
+     position: fixed;
+     inset: 0;
+     z-index: 900;
+     pointer-events: none;
+     opacity: .85;
+     background:
+         radial-gradient(circle at center, transparent 58%, rgba(0, 0, 0, .55) 100%),
+         repeating-linear-gradient(
+             to bottom,
+             rgba(0, 0, 0, 0) 0,
+             rgba(0, 0, 0, 0) 2px,
+             rgba(0, 0, 0, .42) 3px,
+             rgba(0, 0, 0, .42) 4px
+         ),
+         linear-gradient(
+             90deg,
+             rgba(255, 0, 0, .035),
+             rgba(0, 255, 0, .025),
+             rgba(0, 0, 255, .035)
+         );
+     box-shadow:
+         inset 0 0 120px rgba(0, 0, 0, .78),
+         inset 0 0 40px rgba(0, 255, 65, .09);
+}
+ .crt::before {
+     content: "";
+     position: absolute;
+     inset: -30% 0 auto;
+     height: 24%;
+     background: linear-gradient(
+         to bottom,
+         transparent 0%,
+         rgba(0, 255, 65, .04) 20%,
+         rgba(0, 255, 65, .22) 50%,
+         rgba(0, 255, 65, .04) 80%,
+         transparent 100%
+     );
+     box-shadow: 0 0 25px rgba(0, 255, 65, .18), 0 0 60px rgba(0, 255, 65, .08);
+     animation: crtScan 5.5s linear infinite;
+}
+ .crt::after {
+     content: "";
+     position: absolute;
+     left: 0;
+     right: 0;
+     top: 0;
+     height: 2px;
+     background: rgba(0, 255, 65, .75);
+     box-shadow: 0 0 6px var(--green), 0 0 15px var(--green), 0 0 30px rgba(0, 255, 65, .45);
+     animation: refresh 3.8s linear infinite;
+}
+ .cyber-bg-canvas {
+     position: fixed;
+     inset: 0;
+     width: 100%;
+     height: 100%;
+     z-index: 0;
+     pointer-events: none;
+     opacity: .42;
+}
+ .cyber-grid-overlay {
+     position: fixed;
+     inset: 0;
+     z-index: 1;
+     pointer-events: none;
+     background-image:
+         linear-gradient(rgba(0, 255, 65, .03) 1px, transparent 1px),
+         linear-gradient(90deg, rgba(0, 255, 65, .03) 1px, transparent 1px);
+     background-size: 38px 38px;
+     mask-image: radial-gradient(circle at 50% 35%, black 35%, transparent 90%);
+}
+ .matrix-canvas {
+     position: fixed;
+     inset: 0;
+     width: 100%;
+     height: 100%;
+     z-index: 950;
+     pointer-events: none;
+     opacity: 0;
+     visibility: hidden;
+     transition: opacity .2s ease, visibility .2s ease;
+}
+ .matrix-canvas.active {
+     opacity: .85;
+     visibility: visible;
+}
+ .glitch-layer {
+     position: fixed;
+     inset: 0;
+     z-index: 890;
+     pointer-events: none;
+     opacity: 0;
+     background:
+         linear-gradient(90deg, transparent 0 10%, rgba(0, 255, 65, .09) 10% 12%, transparent 12% 60%, rgba(98, 255, 232, .07) 60% 61%, transparent 61%),
+         repeating-linear-gradient(0deg, rgba(0, 255, 65, .05) 0 2px, transparent 2px 6px);
+}
+ .glitch-layer.active {
+     animation: glitch .38s steps(2, end);
+}
+ .glitch-text {
+     position: relative;
+     display: inline-block;
+}
+ .glitch-text:hover {
+     animation: textGlitch .35s steps(2, end) infinite;
+}
+ .content-module, .hero-panel, .simulation-module {
+     position: relative;
+     overflow: hidden;
+     transition: border-color .25s ease, box-shadow .25s ease;
+}
+ .content-module::before, .hero-panel::before, .simulation-module::before {
+     content: "";
+     position: absolute;
+     top: 0;
+     left: -100%;
+     width: 60%;
+     height: 2px;
+     background: linear-gradient(90deg, transparent, var(--cyan), var(--green), transparent);
+     transition: left .75s ease;
+     pointer-events: none;
+}
+ .content-module:hover::before, .hero-panel:hover::before, .simulation-module:hover::before {
+     left: 140%;
+}
+ .content-module:hover, .hero-panel:hover {
+     border-color: rgba(0, 255, 65, .52);
+     box-shadow: 0 0 34px rgba(0, 255, 65, .14), inset 0 0 24px rgba(0, 255, 65, .03);
+}
+ .info-card, .check-grid > div, .practice-grid > div, .example-card {
+     position: relative;
+     transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease, background .22s ease;
+}
+ .info-card:hover, .check-grid > div:hover, .practice-grid > div:hover, .example-card:hover {
+     transform: translateY(-3px);
+     border-color: var(--green);
+     background: rgba(0, 255, 65, .045);
+     box-shadow: 0 6px 22px rgba(0, 255, 65, .12);
+}
+ .cursor-glow {
+     position: fixed;
+     width: 340px;
+     height: 340px;
+     border-radius: 50%;
+     pointer-events: none;
+     z-index: 1;
+     transform: translate(-50%, -50%);
+     background: radial-gradient(circle, rgba(0, 255, 65, .075) 0%, rgba(98, 255, 232, .025) 35%, transparent 70%);
+     transition: opacity .2s ease;
+}
+ @keyframes blink {
+     0%, 48% {
+         opacity: 1;
+    }
+     49%, 100% {
+         opacity: 0;
+    }
+}
+ @keyframes crtScan {
+     from {
+         transform: translateY(-120%);
+    }
+     to {
+         transform: translateY(600%);
+    }
+}
+ @keyframes refresh {
+     from {
+         transform: translateY(-5px);
+    }
+     to {
+         transform: translateY(100vh);
+    }
+}
+ @keyframes glitch {
+     0% {
+         opacity: 0;
+         transform: none;
+    }
+     20% {
+         opacity: 1;
+         transform: translateX(-5px) skewX(-2deg);
+    }
+     45% {
+         opacity: .6;
+         transform: translateX(6px) skewX(2deg);
+    }
+     70% {
+         opacity: 1;
+         transform: translateX(-3px);
+    }
+     100% {
+         opacity: 0;
+         transform: none;
+    }
+}
+ @keyframes textGlitch {
+     0% {
+         text-shadow: 2px 0 var(--cyan), -2px 0 var(--red);
+         transform: translate(0);
+    }
+     33% {
+         text-shadow: -2px 0 var(--cyan), 2px 0 var(--red);
+         transform: translate(-1px, 1px);
+    }
+     66% {
+         text-shadow: 2px 1px var(--green), -2px -1px var(--cyan);
+         transform: translate(1px, -1px);
+    }
+     100% {
+         text-shadow: 0 0 15px var(--glow);
+         transform: translate(0);
+    }
+}
+ body.reduced-effects .crt {
+     opacity: .35;
+     background: repeating-linear-gradient( to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 3px, rgba(0, 0, 0, .12) 4px, rgba(0, 0, 0, .12) 5px ), linear-gradient( 90deg, rgba(255, 0, 0, .012), rgba(0, 255, 0, .008), rgba(0, 0, 255, .012) );
+     box-shadow: inset 0 0 60px rgba(0, 0, 0, .30);
+}
+ body.reduced-effects .crt::before,
+ body.reduced-effects .crt::after,
+ body.reduced-effects .cyber-bg-canvas,
+ body.reduced-effects .cursor-glow {
+     display: none;
+     animation: none;
+}
+ body.reduced-effects .terminal-main, body.reduced-effects .app-shell {
+     text-shadow: none;
+}
+ body.reduced-effects .glitch-layer {
+     animation: none;
+     opacity: 0;
+}
+ body.reduced-effects .matrix-canvas {
+     opacity: .35;
+}
+ body.sem-crt .crt {
+     display: none;
+}
+ body.sem-crt {
+     text-shadow: none;
+}
