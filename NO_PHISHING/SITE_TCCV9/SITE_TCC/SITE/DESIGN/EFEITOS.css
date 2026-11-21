@@ -1,0 +1,136 @@
+ .crt {
+     position: fixed;
+     inset: 0;
+     z-index: 900;
+     pointer-events: none;
+     opacity: .85;
+     background: repeating-linear-gradient( to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, .42) 3px, rgba(0, 0, 0, .42) 4px ), linear-gradient( 90deg, rgba(255, 0, 0, .035), rgba(0, 255, 0, .025), rgba(0, 0, 255, .035) );
+     box-shadow: inset 0 0 120px rgba(0, 0, 0, .75), inset 0 0 35px rgba(0, 255, 65, .08);
+}
+ .crt::before {
+     content: "";
+     position: absolute;
+     inset: -30% 0 auto;
+     height: 24%;
+     background: linear-gradient( to bottom, transparent 0%, rgba(0, 255, 65, .04) 20%, rgba(0, 255, 65, .28) 50%, rgba(0, 255, 65, .04) 80%, transparent 100% );
+     box-shadow: 0 0 25px rgba(0, 255, 65, .18), 0 0 60px rgba(0, 255, 65, .08);
+     animation: crtScan 4s linear infinite;
+}
+ .crt::after {
+     content: "";
+     position: absolute;
+     left: 0;
+     right: 0;
+     top: 0;
+     height: 2px;
+     background: rgba(0, 255, 65, .9);
+     box-shadow: 0 0 6px var(--green), 0 0 15px var(--green), 0 0 30px rgba(0, 255, 65, .5);
+     animation: refresh 2.8s linear infinite;
+}
+ .crt::before, .crt::after, .glitch-layer {
+     display: none;
+}
+ .matrix-canvas {
+     position: fixed;
+     inset: 0;
+     width: 100%;
+     height: 100%;
+     z-index: 950;
+     pointer-events: none;
+     opacity: 0;
+     visibility: hidden;
+     transition: opacity .2s ease, visibility .2s ease;
+}
+ .matrix-canvas.active {
+     opacity: .85;
+     visibility: visible;
+}
+ .glitch-layer {
+     position: fixed;
+     inset: 0;
+     z-index: 890;
+     pointer-events: none;
+     opacity: 0;
+     background: linear-gradient( 90deg, transparent 0 10%, rgba(0, 255, 65, .08) 10% 12%, transparent 12% 60%, rgba(0, 255, 65, .05) 60% 61%, transparent 61% );
+}
+ .glitch-layer.active {
+     animation: glitch .35s steps(2, end);
+}
+ @keyframes blink {
+     0%, 48% {
+         opacity: 1;
+    }
+     49%, 100% {
+         opacity: 0;
+    }
+}
+ @keyframes crtScan {
+     from {
+         transform: translateY(-120%);
+    }
+     to {
+         transform: translateY(600%);
+    }
+}
+ @keyframes refresh {
+     from {
+         transform: translateY(-5px);
+    }
+     to {
+         transform: translateY(100vh);
+    }
+}
+ @keyframes glitch {
+     0% {
+         opacity: 0;
+         transform: none;
+    }
+     20% {
+         opacity: 1;
+         transform: translateX(-4px);
+    }
+     45% {
+         opacity: .5;
+         transform: translateX(5px);
+    }
+     70% {
+         opacity: 1;
+         transform: translateX(-2px);
+    }
+     100% {
+         opacity: 0;
+         transform: none;
+    }
+}
+ body.reduced-effects .crt {
+     opacity: .35;
+     background: repeating-linear-gradient( to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 3px, rgba(0, 0, 0, .12) 4px, rgba(0, 0, 0, .12) 5px ), linear-gradient( 90deg, rgba(255, 0, 0, .012), rgba(0, 255, 0, .008), rgba(0, 0, 255, .012) );
+     box-shadow: inset 0 0 60px rgba(0, 0, 0, .30);
+}
+ body.reduced-effects .crt::before {
+     display: none;
+     animation: none;
+}
+ body.reduced-effects .crt::after {
+     display: block;
+     opacity: .15;
+     box-shadow: 0 0 3px var(--green);
+     animation: none;
+}
+ body.reduced-effects .terminal-main, body.reduced-effects .app-shell {
+     text-shadow: none;
+}
+ body.reduced-effects .glitch-layer {
+     animation: none;
+     opacity: 0;
+}
+ body.reduced-effects .matrix-canvas {
+     opacity: .35;
+}
+ body.sem-crt .crt {
+     display: none;
+}
+ body.sem-crt {
+     text-shadow: none;
+}
+ 

@@ -1,0 +1,17 @@
+:root {
+     --bg: #030703;
+     --panel: #071007;
+     --panel-2: #0b160b;
+     --green: #00ff41;
+     --green-dim: #00aa2a;
+     --green-dark: #003b12;
+     --text: #b7ffca;
+     --muted: #6fa87c;
+     --cyan: #62ffe8;
+     --yellow: #f5e96b;
+     --red: #ff6b6b;
+     --border: rgba(0, 255, 65, .28);
+     --glow: rgba(0, 255, 65, .35);
+     --shadow: 0 0 28px rgba(0, 255, 65, .09);
+     --font: "Courier New", Courier, monospace;
+}

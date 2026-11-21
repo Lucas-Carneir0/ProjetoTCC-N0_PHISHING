@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="NO_PHISHING — terminal educacional sobre phishing, engenharia social e roubo de dados.">
+  <title>NO_PHISHING - Terminal Educacional</title>
+  <link rel="stylesheet" href="DESIGN/MAIN.css">
+</head>
+
+<body>
+  <div id="boot" class="boot-screen" aria-label="Inicialização do sistema">
+    <div class="boot-frame">
+      <div class="boot-status"><span class="status-dot"></span> SEC-LAB / BOOT SEQUENCE</div>
+      <h1 id="titulo" class="boot-title" aria-live="polite"></h1>
+      <div id="loading" class="boot-log" aria-live="polite"></div>
+      <div class="boot-progress"><span id="bootProgress"></span></div>
+      <button id="desativarIntro" class="terminal-btn ghost" type="button">PULAR INTRODUÇÃO</button>
+    </div>
+  </div>
+
+  <div id="terminal" class="app-shell" hidden>
+    <div class="crt" aria-hidden="true"></div>
+    <canvas id="matrixCanvas" class="matrix-canvas" aria-hidden="true"></canvas>
+    <div id="glitchLayer" class="glitch-layer" aria-hidden="true"></div>
+
+    <div id="barra" class="scroll-progress" aria-hidden="true">
+      <div id="progresso"></div>
+    </div>
+
+    <header class="topbar">
+      <div class="brand">
+        <img class="brand-mark" src="../LOGO/IMAGE1.png" alt="Logo NO_PHISHING">
+        <div class="brand-text">
+          <div class="brand-title">NO_PHISHING</div>
+          <div class="brand-subtitle">TERMINAL EDUCATIVO || Versão 8.0</div>
+        </div>
+      </div>
+      <nav class="quick-nav" aria-label="Navegação rápida entre módulos">
+        <a href="#01">[01] Phishing</a>
+        <a href="#02">[02] Eng. Social</a>
+        <a href="#03">[03] Técnicas</a>
+        <a href="#04">[04] Tipos</a>
+        <a href="#05">[05] Roubo</a>
+        <a href="#06">[06] Defesa</a>
+        <a href="#07">[07] Boas Práticas</a>
+        <a href="#08">[08] Referências</a>
+      </nav>
+      <div class="system-status" aria-label="Status do sistema">
+        <span class="status-dot"></span>
+        <span>STATUS: ONLINE</span>
+        <span class="separator">|</span>
+        <span>DEFESA: ATIVA</span>
+      </div>
+    </header>
+
+    <main class="terminal-main">
+      <section class="hero-panel cascade-section" data-module="BOOTSTRAP"
+        id="home">
+        <div class="module-line"><span>00</span> MÓDULO: LABORATÓRIO DE CONSCIENTIZAÇÃO</div>
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">&gt; PERIGO DE PHISHING || SISTEMA ONLINE</div>
+            <h2>Investigue o golpe.<br><span>Proteja os dados.</span></h2>
+            <p class="lead">Uma experiência educativa que transforma o terminal
+              em um laboratório de análise para leigos e profissionais. Observe
+              sinais, entenda a manipulação psicológica, identifique tipos de
+              golpes e descubra como prevenir o roubo de dados.</p>
+            <div class="hero-actions">
+              <button class="terminal-btn primary" id="btnSimulation"
+                type="button">&gt; EXECUTAR SIMULAÇÃO</button>
+              <a class="terminal-btn" href="#01">CONHEÇA MAIS</a>
+            </div>
+          </div>
+          <div class="threat-card" aria-label="Resumo fictício de ameaça">
+            <div class="card-head">PHISHING.exe <span class="status-dot"></span>AO VIVO</div>
+            <div class="metric"><span>VETOR</span><strong>MULTI-CANAL</strong></div>
+            <div class="metric"><span>FATOR</span><strong>HUMANO (68% DBIR)</strong></div>
+            <div class="metric"><span>RISCO</span><strong class="risk">ALTÍSSIMO</strong></div>
+            <div class="metric"><span>MODO</span><strong>EDUCATIVO / TCC</strong></div>
+            <div class="mini-code">const defense = {<br>&nbsp;&nbsp;verify: true,<br>&nbsp;&nbsp;click: false<br>};</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider">// ANALYSIS CHANNEL OPEN //</div>
+
+      <section id="01" class="content-module cascade-section"
+        data-module="PHISHING">
+        <div class="cmd">NO_PHISHING@SECURITY:~$ cat phishing.txt</div>
+        <div class="section-title"><span>[01]</span> O QUE É PHISHING?</div>
+        <p>O <strong>phishing</strong> é uma ação criminosa no meio digital que
+          busca obter informações confidenciais — como senhas, dados bancários,
+          números de cartões e dados pessoais — por meio de mensagens, links,
+          páginas falsas e iscas digitais.</p>
+        <div class="info-grid">
+          <article class="info-card">
+            <span class="card-index">01 // ANALOGIA E ORIGEM</span>
+            <h3>Origem do termo</h3>
+            <p>Surge da analogia e junção das palavras em inglês <em>“fishing”</em>
+              (pesca) e <em>“phreaks”</em> (associada aos pioneiros da exploração
+              em redes telefônicas). Assim como um pescador lança uma isca para
+              fisgar um peixe, o criminoso lança iscas digitais atrativas para
+              capturar usuários desatentos.</p>
+          </article>
+          <article class="info-card">
+            <span class="card-index">02 // VISÃO TÉCNICA E IMPACTO</span>
+            <h3>Por que acontece?</h3>
+            <p>É um vetor de fraude eletrônica que explora a confiança e a
+              desatenção humana — frequentemente apontado como o elo mais
+              frágil da cadeia — para comprometer a confidencialidade e a
+              integridade da informação. Segundo a IBM (2025), fraudes baseadas
+              em engenharia social respondem por cerca de 15% das violações de
+              dados mapeadas globalmente.</p>
+          </article>
+          <article class="info-card">
+            <span class="card-index">03 // ILUSTRAÇÃO DO CONCEITO</span>
+            <h3>Pesca de informações</h3>
+            <img src="../LOGO/EXEMPLO.png" alt="Ilustração do conceito de phishing">
+          </article>
+        </div>
+      </section>
+
+      <section id="02" class="content-module cascade-section"
+        data-module="SOCIAL_ENGINEERING">
+        <div class="cmd">NO_PHISHING@SECURITY:~$ analyze social_engineering --intent</div>
+        <div class="section-title"><span>[02]</span> ENGENHARIA SOCIAL E FALSAS INTENÇÕES</div>
+        <p>A <strong>Engenharia Social</strong> é a espinha dorsal de grande
+          parte das fraudes eletrônicas: trata-se de técnicas de
+          <strong>manipulação psicológica</strong> usadas para induzir pessoas a
+          realizarem ações inseguras ou revelarem dados sigilosos sem
+          perceberem o risco. Diferente de ataques que exploram falhas puramente
+          técnicas, ela mira o <strong>fator humano</strong> — presente em
+          <strong>68% das violações de dados</strong> analisadas no relatório
+          DBIR da Verizon (2024).</p>
+
+        <div class="split-panel">
+          <div>
+            <h3>[ ETAPAS DE UM ATAQUE DE ENGENHARIA SOCIAL ]</h3>
+            <ol class="step-list">
+              <li><b>Coleta de informações:</b> reconhecimento sobre o alvo ou organização.</li>
+              <li><b>Cenário ou pretexto:</b> criação de uma história convincente.</li>
+              <li><b>Estabelecimento de confiança:</b> aparência legítima ou familiar.</li>
+              <li><b>Exploração emocional/psicológica:</b> ativação de vieses e pressa.</li>
+              <li><b>Ação ou captura:</b> obtenção de credenciais, pagamentos ou cliques.</li>
+            </ol>
+          </div>
+          <div>
+            <h3>[ FALSAS INTENÇÕES E GATILHOS PSICOLÓGICOS ]</h3>
+            <p>Por trás de toda abordagem há uma <strong>falsa intenção</strong>
+              disfarçada por gatilhos mentais e vieses cognitivos que reduzem o
+              senso crítico da vítima:</p>
+            <ul class="bullet-list">
+              <li><b>Urgência e Medo:</b> ameaças de bloqueio de conta, multas ou prazos curtos para forçar decisões impulsivas.</li>
+              <li><b>Autoridade:</b> uso indevido de nomes de bancos, Receita Federal, justiça, suporte técnico ou chefia.</li>
+              <li><b>Confiança e Familiaridade:</b> logotipos, cores e identidades conhecidas ou simulação de contatos próximos.</li>
+              <li><b>Escassez, Reciprocidade e Prova Social:</b> ofertas limitadas, falsos brindes/ajuda ou depoimentos forjados.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="03" class="content-module cascade-section"
+        data-module="TECHNIQUES">
+        <div class="cmd">NO_PHISHING@SECURITY:~$ list techniques --all</div>
+        <div class="section-title"><span>[03]</span> TÉCNICAS UTILIZADAS</div>
+        <p>Criminosos combinam investigação aberta, disfarce de identidade,
+          códigos maliciosos e falhas de sistemas para preparar e executar os
+          ataques:</p>
+        <div class="check-grid">
+          <div><span>01</span><b>OSINT (Open Source Intelligence)</b>
+            <p>Coleta de dados públicos (redes sociais, sites, fóruns, registros)
+              como nome, cargo, e-mail, hierarquia e rotina para personalizar
+              o golpe.</p>
+          </div>
+          <div><span>02</span><b>Spoofing e Clonagem (Phishing HTTP)</b>
+            <p>Falsificação de cabeçalhos e remetentes para parecer legítimo,
+              combinada a réplicas exatas de páginas de login para capturar
+              credenciais.</p>
+          </div>
+          <div><span>03</span><b>Typo-squatting</b>
+            <p>Registro de domínios falsos com erros sutis de digitação em
+              relação ao endereço original para capturar usuários desatentos.</p>
+          </div>
+          <div><span>04</span><b>Phishing com Inteligência Artificial</b>
+            <p>Uso de IA generativa para redigir mensagens fluidas, contextualizadas
+              e sem erros gramaticais óbvios, dificultando a detecção.</p>
+          </div>
+          <div><span>05</span><b>Malwares (Spywares e Keyloggers)</b>
+            <p>Programas ocultos em links ou anexos que monitoram atividades
+              (<em>spywares</em>) ou registram teclas digitadas (<em>keyloggers</em>)
+              para roubar senhas e dados.</p>
+          </div>
+          <div><span>06</span><b>Falhas Web e Exfiltração de Dados</b>
+            <p>Exploração de vulnerabilidades como <em>SQL Injection</em> e
+              <em>XSS</em> para acessar bases e realizar a <strong>exfiltração</strong>
+              (transferência não autorizada via nuvem, e-mail ou canais ocultos).</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="04" class="content-module cascade-section"
+        data-module="PHISHING_TYPES">
+        <div class="cmd">NO_PHISHING@SECURITY:~$ parse phishing_types --table</div>
+        <div class="section-title"><span>[04]</span> TIPOS DE PHISHING: COMO FUNCIONAM, CARACTERÍSTICAS E COMO EVITAR</div>
+        <p>O phishing adapta-se a diferentes canais e alvos. Veja como cada
+          modalidade funciona, suas principais características e como se prevenir:</p>
+        <div class="table-wrap">
+          <table class="phishing-table">
+            <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>Como Funciona e Características</th>
+                <th>Como Evitar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Phishing Tradicional (E-mail)</strong></td>
+                <td>Envio em massa imitando bancos, lojas ou órgãos públicos; usa <em>spoofing</em>, links ofuscados ou anexos infectados.</td>
+                <td>Confira o endereço real após o <code>@</code>, inspecione links antes de clicar e evite abrir anexos inesperados.</td>
+              </tr>
+              <tr>
+                <td><strong>Spear Phishing</strong></td>
+                <td>Ataque direcionado a uma pessoa ou empresa específica, usando informações públicas coletadas (OSINT) para aumentar a credibilidade.</td>
+                <td>Limite dados profissionais sensíveis em redes públicas e valide pedidos incomuns por outro canal.</td>
+              </tr>
+              <tr>
+                <td><strong>Whaling (e BEC)</strong></td>
+                <td>Variante direcionada a altos executivos (CEOs, diretores, CFOs) para acessar dados estratégicos ou fraudar transferências (<em>Business Email Compromise</em>).</td>
+                <td>Exija dupla confirmação fora do e-mail para pagamentos, transferências e liberações confidenciais.</td>
+              </tr>
+              <tr>
+                <td><strong>Smishing</strong></td>
+                <td>Aplicado via SMS ou mensageiros (como WhatsApp) com alertas falsos de entregas, faturas ou prêmios, links maliciosos ou boletos adulterados.</td>
+                <td>Desconfie de mensagens urgentes de números desconhecidos e consulte faturas apenas nos apps oficiais.</td>
+              </tr>
+              <tr>
+                <td><strong>Vishing</strong></td>
+                <td>Realizado por ligação telefônica ou voz (VoIP), usando manipulação ou síntese de voz para simular centrais bancárias e pedir dados.</td>
+                <td>Nunca informe senhas ou códigos por telefone; desligue e ligue para o número oficial conhecido.</td>
+              </tr>
+              <tr>
+                <td><strong>Quishing</strong></td>
+                <td>Emprega códigos QR (<em>QR Codes</em>) maliciosos em mensagens, cartazes ou e-mails para mascarar URLs e burlar filtros de texto.</td>
+                <td>Veja a prévia do endereço antes de abrir a página e não escaneie QR Codes de origem duvidosa.</td>
+              </tr>
+              <tr>
+                <td><strong>Phishing de Buscador</strong></td>
+                <td>Usa manipulação de resultados ou anúncios pagos em buscadores para posicionar sites falsos no topo das buscas.</td>
+                <td>Evite anúncios suspeitos ao acessar bancos ou serviços e digite o domínio oficial diretamente.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="05" class="content-module cascade-section"
+        data-module="DATA_THEFT">
+        <div class="cmd">NO_PHISHING@SECURITY:~$ inspect data_theft.log</div>
+        <div class="section-title"><span>[05]</span> ROUBO DE DADOS: ALVOS E CONSEQUÊNCIAS</div>
+        <p>O <strong>roubo de dados</strong> é a obtenção, interceptação,
+          modificação ou apropriação ilícita de informações confidenciais
+          transmitidas ou armazenadas em sistemas computacionais, frequentemente
+          associado ao phishing e à exfiltração de informações.</p>
+        <div class="split-panel">
+          <div>
+            <h3>[ PRINCIPAIS ALVOS ]</h3>
+            <ul class="bullet-list">
+              <li><b>Dados pessoais e de acesso:</b> credenciais, senhas, identificadores, e-mails e números de telefone.</li>
+              <li><b>Dados financeiros:</b> números de cartões, contas bancárias e informações de pagamento.</li>
+              <li><b>Ativos corporativos:</b> bases de clientes, dados estratégicos, propriedade intelectual e acessos administrativos.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>[ CONSEQUÊNCIAS E IMPACTOS ]</h3>
+            <ul class="bullet-list">
+              <li><b>Financeiras e operacionais:</b> fraudes, perdas diretas, interrupção de serviços e custos elevados (podendo atingir milhões de dólares em incidentes corporativos).</li>
+              <li><b>Reputacionais:</b> perda de confiança de clientes, parceiros e do mercado — efeito que costuma persistir por longo tempo.</li>
+              <li><b>Legais (LGPD):</b> sob a Lei nº 13.709/2018, falhas no tratamento e proteção de dados pessoais sujeitam organizações a sanções administrativas e multas.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="06" class="content-module cascade-section"
+        data-module="SAFE_SECURITY">
+        <div class="cmd">NO_PHISHING@SECURITY:~$ enable safe_security --hardening</div>
+        <div class="section-title"><span>[06]</span> COMO TER UMA SEGURANÇA DIGITAL MAIS SEGURA</div>
+        <p>A proteção eficaz contra phishing e roubo de dados combina controles
+          técnicos com uma postura crítica contínua (<strong>verificar antes de
+          confiar</strong>):</p>
+        <div class="check-grid">
+          <div><span>01</span><b>Autenticação Multifator (MFA)</b>
+            <p>Adicione uma segunda camada de verificação (app autenticador, token
+              ou chave). Mesmo com a senha exposta, o acesso é bloqueado.</p>
+          </div>
+          <div><span>02</span><b>Senhas Fortes e Gerenciadores</b>
+            <p>Evite reutilizar senhas, crie combinações robustas e utilize um
+              gerenciador de credenciais confiável.</p>
+          </div>
+          <div><span>03</span><b>Atualizações Periódicas</b>
+            <p>Mantenha sistema operacional, navegador, aplicativos e antivírus
+              atualizados para fechar brechas exploradas por malwares.</p>
+          </div>
+          <div><span>04</span><b>Validação por Canal Oficial</b>
+            <p>Confirme solicitações de dados sigilosos, boletos ou transferências
+              por um canal oficial e independente da mensagem recebida.</p>
+          </div>
+          <div><span>05</span><b>Inspeção de Links e Remetentes</b>
+            <p>Verifique o domínio real, desconfie de urgência artificial e acesse
+              serviços digitando o endereço oficial ou pelos favoritos.</p>
+          </div>
+          <div><span>06</span><b>Backups e Monitoramento</b>
+            <p>Mantenha cópias de segurança periódicas para preservar a
+              integridade e disponibilidade e monitore atividades incomuns.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="07" class="content-module cascade-section"
+        data-module="BEST_PRACTICES">
+        <div class="cmd">NO_PHISHING@SECURITY:~$ load best_practices.cfg</div>
+        <div class="section-title"><span>[07]</span> BOAS PRÁTICAS</div>
+        <div class="split-panel">
+          <div>
+            <h3>[ BOAS PRÁTICAS PARA USUÁRIOS ]</h3>
+            <ul class="bullet-list">
+              <li><b>Não aja por impulso:</b> pare e avalie mensagens com urgência, ameaças ou promessas exageradas.</li>
+              <li><b>Gerencie sua exposição online:</b> reduza o excesso de informações pessoais e profissionais em redes públicas.</li>
+              <li><b>Reporte golpes:</b> comunique mensagens suspeitas aos canais oficiais ou à equipe responsável.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>[ BOAS PRÁTICAS CORPORATIVAS ]</h3>
+            <ul class="bullet-list">
+              <li><b>Treinamento e simulações:</b> programas contínuos de conscientização e campanhas simuladas de phishing.</li>
+              <li><b>Menor privilégio e RBAC:</b> controle de acesso baseado em funções (<em>Role-Based Access Control</em>) e revisão de permissões.</li>
+              <li><b>Governança e resposta:</b> políticas formais, gestão de OSINT, planos de resposta a incidentes e alinhamento a frameworks como <strong>ISO/IEC 27001</strong> e <strong>NIST CSF</strong> em uma cultura sem punição.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="practice-grid" style="margin-top: 14px;">
+          <div>MFA + RBAC <span>Identidade verificada e acesso restrito ao necessário</span></div>
+          <div>TREINO + SIMULAÇÃO <span>Cultura de segurança contínua e reporte sem medo</span></div>
+          <div>ISO/IEC 27001 + NIST <span>Governança, gestão de riscos e resposta a incidentes</span></div>
+          <div>LGPD (LEI 13.709/18) <span>Privacidade, transparência e proteção de dados pessoais</span></div>
+        </div>
+      </section>
+
+      <section id="08" class="content-module cascade-section"
+        data-module="REFERENCES">
+        <div class="cmd">NO_PHISHING@SECURITY:~$ open references.txt</div>
+        <div class="section-title"><span>[08]</span> REFERÊNCIAS UTILIZADAS NO TCC</div>
+        <p>Fontes acadêmicas, normas, legislações e materiais institucionais
+          utilizados na fundamentação teórica e no desenvolvimento do projeto:</p>
+        <ul class="ref-list">
+          <li>ALNEYADI, S.; SITHIRASENAN, E.; MUTHUKKUMARASAMY, V. <em>Data Exfiltration: A Review of External Attack Vectors and Countermeasures</em>. Journal of Network and Computer Applications, 2018.</li>
+          <li>BEZERRA, P. S.; MILLIAN, L. E. A.; SILVA, R. C. <em>Estudo de Técnicas de Phishing: Métodos de Ataque e Estratégias de Defesa</em>. Universidade Presbiteriana Mackenzie, São Paulo, 2024.</li>
+          <li>BHUSAL, C. S. <em>Systematic Review on Social Engineering: Hacking by Manipulating Humans</em>. 2021.</li>
+          <li>BRASIL. <em>Lei nº 13.709, de 14 de agosto de 2018. Lei Geral de Proteção de Dados Pessoais (LGPD)</em>. Brasília, DF, 2018.</li>
+          <li>CONSELHO NACIONAL DE JUSTIÇA (CNJ). <em>Cartilha de Segurança da Informação</em>. Brasília: CNJ, 2023.</li>
+          <li>DASA. <em>Cartilha Phishing: Cuidado - Segurança da Informação</em>. São Paulo: Dasa, 2023.</li>
+          <li>DAVID, U. G.; BODE-ASA, A. <em>An Overview of Social Engineering: The Role of Cognitive Biases Towards Social Engineering-Based Cyber-Attacks, Impacts and Countermeasures</em>. 2023.</li>
+          <li>ESCOLA SUPERIOR DO MINISTÉRIO PÚBLICO DA UNIÃO (ESMPU). <em>Guia Rápido da LGPD: Lei Geral de Proteção de Dados</em>. Brasília: ESMPU, 2021.</li>
+          <li>FERREIRA, R. E.; BRANCO, C. I. <em>Phishing: Riscos e Prevenção</em>. Carlos Pinto de Abreu e Associados, Lisboa, 2024.</li>
+          <li>FLANAGAN, David. <em>JavaScript: The Definitive Guide</em>. 7. ed. Sebastopol: O'Reilly Media, 2020.</li>
+          <li>GABINETE DE SEGURANÇA INSTITUCIONAL DA PRESIDÊNCIA DA REPÚBLICA (GSI/PR). <em>Cartilha de Gestão de Segurança da Informação</em>. Brasília: GSI/PR, 2022.</li>
+          <li>GONI, Osman. <em>The Basic Concept of Cyber Crime</em>. 2022.</li>
+          <li>IBM. <em>Cost of a Data Breach Report</em>. 2024.</li>
+          <li>IBM / MATO GROSSO DO SUL. <em>Guia de Prevenção a Incidentes de Segurança Cibernéticos</em>. PGE/MS, 1. ed., Campo Grande, 2025.</li>
+          <li>INTERNATIONAL ORGANIZATION FOR STANDARDIZATION (ISO). <em>Information Security Management Systems (ISO/IEC 27000 / 27001)</em>. 2022.</li>
+          <li>JAIN, A.; GUPTA, B. B. <em>Phishing Attacks and Countermeasures: Current Trends and Future Directions</em>. 2022.</li>
+          <li>LUCAS, L. C. <em>Compreendendo a Psicologia do Phishing: Uma Abordagem Prática Centrada no Usuário</em>. Universidade Federal do Ceará (UFC), Itapajé, 2024.</li>
+          <li>MEYER, Eric A. <em>CSS: The Definitive Guide</em>. 4. ed. Sebastopol: O'Reilly Media, 2018.</li>
+          <li>NATIONAL INSTITUTE OF STANDARDS AND TECHNOLOGY (NIST). <em>Cybersecurity Framework 2.0</em>. 2024.</li>
+          <li>NIU, J. et al. <em>A Dataset of Open Source Intelligence (OSINT) Tweets about the Russo-Ukrainian War</em>. 2024.</li>
+          <li>NOVAK, C. et al. <em>2024 Data Breach Investigations Report</em>. Verizon Business, 2024.</li>
+          <li>PRESSMAN, Roger S.; MAXIM, Bruce R. <em>Engenharia de Software: uma abordagem profissional</em>. 9. ed. Porto Alegre: AMGH, 2021.</li>
+          <li>RODRIGUEZ, R. M.; GOLOB, E.; XU, S. <em>Human Cognition through the Lens of Social Engineering Cyberattacks</em>. 2020.</li>
+          <li>SALAHDINE, F.; KAABOUCH, N. <em>Social Engineering Attacks: A Survey</em>. 2019.</li>
+          <li>SINAGA, Hasudungan. <em>Data Theft and Phishing in the Digital Environment</em>. 2023.</li>
+          <li>VERIZON. <em>2024 Data Breach Investigations Report (DBIR)</em>. New Jersey: Verizon Business, 2024.</li>
+          <li>W3C. <em>HTML Standard</em> e <em>CSS Overview</em>. 2024.</li>
+          <li>WORLD ECONOMIC FORUM. <em>Global Cybersecurity Outlook</em>. 2024.</li>
+        </ul>
+        <div class="reference-note">[ TCC / ACADEMIC MODULE ] &gt; Conteúdo
+          educacional de conscientização para leigos e profissionais da área.
+        </div>
+      </section>
+
+      <section class="simulation-module cascade-section" id="simulation-module"
+        data-module="SIMULATION">
+        <div class="module-line"><span>09</span> MODULE: PHISHING_SIMULATOR
+        </div>
+        <div class="simulation-inner">
+          <div>
+            <div class="eyebrow">&gt; CONTROLLED ENVIRONMENT</div>
+            <h2>Teste sua capacidade de detectar um golpe.</h2>
+            <p>Entre no ambiente de e-mail fictício e analise uma mensagem antes
+              de decidir. A simulação não envia ou armazena dados reais.</p>
+          </div>
+          <button class="terminal-btn primary large" id="btnSimulationBottom"
+            type="button">&gt; RUN_SIMULATION.exe</button>
+        </div>
+      </section>
+
+      <section class="interactive-terminal cascade-section" id="terminalConsole"
+        aria-labelledby="terminalTitle">
+        <div class="terminal-window">
+          <div class="window-bar"><span
+              id="terminalTitle">NO_PHISHING@SECURITY:~$</span><span>INTERACTIVE
+              CONSOLE</span></div>
+          <div id="terminalOutput" class="terminal-output" aria-live="polite">
+            <div>&gt; Console ready.</div>
+            <div>&gt; Type <b>help</b> to list available commands.</div>
+          </div>
+          <form id="terminalForm" class="terminal-input-row" autocomplete="off">
+            <label for="terminalInput">NO_PHISHING@SECURITY:~$</label>
+            <input id="terminalInput" type="text" inputmode="text"
+              spellcheck="false" aria-label="Digite um comando do terminal">
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>NO_PHISHING // TERMINAL EDUCACIONAL</div>
+      <div>© 2026 - PROJETO DE TCC</div>
+    </footer>
+
+    <div id="simulationOverlay" class="module-overlay" hidden
+      aria-live="assertive" aria-label="Carregando simulação">
+      <div class="overlay-box">
+        <div class="overlay-title">PHISHING_SIMULATOR</div>
+        <div id="simulationLog" class="overlay-log"></div>
+        <div class="boot-progress"><span id="simulationProgress"></span></div>
+      </div>
+    </div>
+
+    <div id="painelConfigs" class="settings-panel">
+      <button id="abrirConfigs" type="button" aria-expanded="false"
+        aria-controls="configContent"><img src="../LOGO/Gear.png" alt="Configurações"></button>
+      <div id="configContent" class="conteudoConfigs">
+        <button id="btnCRT" type="button">Desativar efeito CRT</button>
+        <button id="reativarIntro" type="button">Reativar introdução</button>
+        <button id="btnReduced" type="button">Reduzir efeitos</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="FUNCIONALIDADES/MAIN.js"></script>
+</body>
+
+</html>
