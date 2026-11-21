@@ -1,0 +1,184 @@
+    #phishing-fishing {
+        --green: #55ff99;
+        --green-dim: #269653;
+        --red: #ff4d6d;
+        --yellow: #ffe66d;
+        --cyan: #4deaff;
+        --purple: #c77dff;
+        --bg: #030806;
+
+        position: fixed;
+        inset: 0;
+        z-index: 999999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background:
+            radial-gradient(circle at 50% 40%, rgba(30, 120, 70, .12), transparent 45%),
+            #010302;
+        color: var(--green);
+        font-family: "Courier New", Courier, monospace;
+        overflow: hidden;
+    }
+
+    #phishing-fishing.visible {
+        display: flex;
+    }
+
+    #phishing-fishing::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: .08;
+        background: repeating-linear-gradient(to bottom,
+                transparent 0,
+                transparent 2px,
+                #fff 3px);
+    }
+
+    .pf-window {
+        position: relative;
+        width: min(920px, 94vw);
+        height: min(680px, 90vh);
+        border: 1px solid var(--green-dim);
+        background: rgba(1, 8, 5, .97);
+        box-shadow:
+            0 0 25px rgba(50, 255, 130, .08),
+            inset 0 0 60px rgba(50, 255, 130, .025);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pf-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 14px;
+        border-bottom: 1px solid var(--green-dim);
+        background: rgba(30, 120, 70, .06);
+        font-size: 13px;
+    }
+
+    .pf-title {
+        color: var(--green);
+        letter-spacing: 2px;
+    }
+
+    .pf-status {
+        color: #638f73;
+    }
+
+    .pf-screen {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    scrollbar-color: var(--green-dim) transparent;
+    overflow-x: auto;
+    }
+
+    .pf-ascii {
+        color: var(--green);
+        white-space: pre;
+        line-height: 1.15;
+        font-size: clamp(8px, 1.2vw, 13px);
+        margin-bottom: 18px;
+    }
+
+    .pf-terminal {
+    min-height: 260px;
+    white-space: pre;
+    line-height: 1.55;
+    font-size: 14px;
+    font-family: "Courier New", Courier, monospace;
+    font-variant-ligatures: none;
+    }
+
+    .pf-line {
+    min-height: 21px;
+    width: max-content;
+    min-width: 100%;
+    box-sizing: border-box;
+    }
+
+    .pf-command {
+        color: #d6ffe4;
+    }
+
+    .pf-system {
+        color: #689f7b;
+    }
+
+    .pf-warning {
+        color: var(--yellow);
+    }
+
+    .pf-danger {
+        color: var(--red);
+    }
+
+    .pf-rare {
+        color: var(--cyan);
+    }
+
+    .pf-epic {
+        color: var(--purple);
+    }
+
+    .pf-legendary {
+        color: #ffd166;
+        text-shadow: 0 0 8px rgba(255, 209, 102, .5);
+    }
+
+    .pf-glitch {
+    color: #fff;
+    animation: pfGlitch .15s infinite alternate;
+    }
+
+    @keyframes pfGlitch {
+        from {
+            color: #fff;
+        }
+
+        to {
+            color: #ff00aa;
+        }
+    }
+
+    .pf-input-row {
+        display: flex;
+        gap: 8px;
+        padding: 10px 14px;
+        border-top: 1px solid var(--green-dim);
+    }
+
+    .pf-prompt {
+        color: var(--green);
+    }
+
+    #pf-input {
+        flex: 1;
+        background: transparent;
+        border: 0;
+        outline: 0;
+        color: #d6ffe4;
+        font: inherit;
+    }
+
+    .pf-footer {
+        padding: 7px 14px;
+        border-top: 1px solid rgba(38, 150, 83, .35);
+        color: #3e6c4d;
+        font-size: 11px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .pf-exit {
+        cursor: pointer;
+        color: #638f73;
+    }
+
+    .pf-exit:hover {
+        color: var(--green);
+    }

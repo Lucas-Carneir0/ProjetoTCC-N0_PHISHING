@@ -1,0 +1,50 @@
+ .settings-panel {
+     position: fixed;
+     right: -220px;
+     top: 0px;
+     width: 220px;
+     z-index: 800;
+     transition: right .3s ease;
+}
+ .settings-panel.aberto {
+     right: 0;
+}
+#abrirConfigs {
+    position: absolute;
+    left: -60px;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    padding: 4px;
+    background: #020602;
+    border: 1px solid var(--green);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+#abrirConfigs img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+ .conteudoConfigs {
+     padding: 12px;
+     border: 1px solid var(--green);
+     background: #010401;
+     display: grid;
+     gap: 9px;
+}
+ .conteudoConfigs button {
+     padding: 10px;
+     border: 1px solid var(--green-dim);
+     background: transparent;
+     color: var(--green);
+     cursor: pointer;
+}
+ .conteudoConfigs button:hover {
+     background: var(--green);
+     color: #000;
+}
